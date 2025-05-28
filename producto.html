@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalles del Producto</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <script src="java/Java.js"></script>
+</head>
+<body class="container my-5">
+  <a href="index.html" class="btn btn-link mt-3">Volver al inicio</a>
+  <div class="row">
+    <div class="col-md-6">
+      <img id="product-image" class="img-fluid" />
+    </div>
+    <div class="col-md-6">
+      <h2 id="product-name"></h2>
+      <p id="product-price" class="text-success fw-bold fs-4"></p>
+      <p id="product-description"></p>
+      <button id="add-to-cart" class="btn btn-dark">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <script src="ava.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const price = parseFloat(params.get("price"));
+    const img = params.get("img");
+    const desc = params.get("desc");
+
+    document.getElementById("product-name").innerText = name;
+    document.getElementById("product-price").innerText = `$${price} MXN`;
+    document.getElementById("product-image").src = img;
+    document.getElementById("product-description").innerText = desc;
+
+    document.getElementById("add-to-cart").onclick = () => {
+      agregarCarrito(name, price);
+    };
+  </script>
+  <hr class="my-5">
+<h4>Más productos</h4>
+<div class="row" id="otros-productos"></div>
+
+<script>
+  const productosExtras = [
+    {
+      name: "Teclado Mecánico",
+      price: 800,
+      img: "img/teclado.jpg",
+      desc: "Teclado con luces RGB.",
+    },
+    {
+      name: "Audífonos Gamer",
+      price: 650,
+      img: "img/audifonos.jpg",
+      desc: "Audífonos con micrófono y sonido envolvente.",
+    },
+    {
+      name: "Mouse Inalámbrico",
+      price: 300,
+      img: "img/mouse.jpg",
+      desc: "Mouse preciso y ergonómico.",
+    }
+  ];
+
+  const contenedor = document.getElementById("otros-productos");
+  productosExtras.forEach(producto => {
+    const col = document.createElement("div");
+    col.className = "col-md-4 mb-3";
+    col.innerHTML = `
+      <div class="card h-100">
+        <img src="${producto.img}" class="card-img-top" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">${producto.name}</h5>
+          <a href="producto.html?name=${encodeURIComponent(producto.name)}&price=${producto.price}&img=${encodeURIComponent(producto.img)}&desc=${encodeURIComponent(producto.desc)}" class="btn btn-outline-dark">Ver detalles</a>
+        </div>
+      </div>
+    `;
+    contenedor.appendChild(col);
+  });
+</script>
+</body>
+</html>
