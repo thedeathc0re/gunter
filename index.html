@@ -3,231 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gunter</title>
+  <title>Gunter | Premium Marketplace</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .alert-banner {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1055;
-      margin-bottom: 0;
-      text-align: center;
-    }
-    body {
-      padding-top: 3rem; 
-    }
-  </style>
-    <script src="java/Java.js"></script>
 </head>
 <body>
 
+  <header class="main-header">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <a class="logo" href="index.html">Gunter<span>.</span></a>
+      
+      <div class="search-container d-none d-md-flex">
+        <i class="bi bi-search text-muted"></i>
+        <input type="text" id="search-input" placeholder="Busca marcas, hardware y más...">
+      </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-    <div class="container">
-     
-      <img src="https://logos-world.net/wp-content/uploads/2022/04/Cloud-9-Emblem.png" width="30px" class="me-2">
-<a class="navbar-brand fw-bold" href="#">Gunter</a>
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="nav">
-        
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Mujer</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Hombre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Accesorios</a></li>
-          <a href="contacto.html" class="btn btn-outline-dark">Contáctanos</a>
-          <div class="d-flex align-items-center ms-3">
-            <a href="carrito.html" class="btn btn-outline-dark">
-              🛒
-              <span id="cart-count" class="badge bg-dark">0</span>
-
-              </span>
-            </a>
-          </div>
-          <div class="d-flex align-items-center ms-3">
-              ४
-            </a>
-          </div>
-        </ul>
+      <div class="d-flex align-items-center gap-4">
+        <a href="carrito.html" class="text-dark text-decoration-none position-relative">
+          <i class="bi bi-bag fs-4"></i>
+          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
+        </a>
+        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender</button>
       </div>
     </div>
-  </nav>
+  </header>
 
-
-  <section class="container my-5">
-    <h2 class="text-center mb-4">Productos Recientes</h2>
+  <div class="container my-5">
     <div class="row">
+      <aside class="col-lg-3">
+        <div class="category-menu sticky-top" style="top: 100px;">
+          <p class="sidebar-section-title">Marketplace</p>
+          <a href="index.html" class="cat-item active"><i class="bi bi-grid"></i> Todo</a>
+          <a href="hogar.html" class="cat-item"><i class="bi bi-house"></i> Hogar</a>
 
+          <p class="sidebar-section-title">Administración</p>
+          <a href="categorias.html" class="cat-item"><i class="bi bi-tags"></i> Categorías</a>
+          <a href="productos-gestion.html" class="cat-item"><i class="bi bi-box-seam"></i> Productos</a>
+          <a href="usuarios.html" class="cat-item"><i class="bi bi-people"></i> Usuarios</a>
+        </div>
+      </aside>
 
-      <div class="col-md-4 mb-4">
-  <div class="card product-card h-100">
-    <img src="https://m.media-amazon.com/images/I/61NilW1LPWL._AC_SL1000_.jpg" class="card-img-top" alt="Suéter Elegante" />
-    <div class="card-body text-center">
-      <h5 class="card-title">Suéter Elegante</h5>
-      <p class="card-text">$749 MXN</p>
-      <a href="producto.html?name=Suéter%20Elegante&price=749&img=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F61NilW1LPWL._AC_SL1000_.jpg&desc=Un%20suéter%20elegante%20para%20toda%20ocasión" class="btn btn-dark mb-2">Ver detalles</a>
-      <button class="btn custom-btn" onclick="agregarCarrito('Suéter Elegante', 749)">Agregar al carrito</button>
+      <main class="col-lg-9">
+        <section id="productos">
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="fw-bold m-0">Catálogo General</h3>
+            <span class="text-muted small">Tijuana, BC</span>
+          </div>
+
+          <div class="row g-4">
+            
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium">Más Vendido</span>
+                  <img src="https://placehold.co/600x600/2563eb/white?text=RX+9060+XT" alt="GPU">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$8,999.00</span>
+                  <h6 class="item-title text-truncate">AMD Radeon RX 9060 XT</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Zona Río</p>
+                  <button class="btn-add" onclick="agregarCarrito('HW-01', 'AMD Radeon RX 9060 XT', 8999, 'https://placehold.co/600x600/2563eb/white?text=RX+9060+XT')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/1e293b/white?text=Ryzen+5600X" alt="CPU">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$3,200.00</span>
+                  <h6 class="item-title text-truncate">Procesador Ryzen 5 5600X</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Otay</p>
+                  <button class="btn-add" onclick="agregarCarrito('HW-02', 'Ryzen 5 5600X', 3200, 'https://placehold.co/600x600/1e293b/white?text=Ryzen+5600X')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/0f172a/white?text=Silla+Gamer" alt="Silla">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$4,500.00</span>
+                  <h6 class="item-title text-truncate">Silla Ergonómica Pro</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Playas</p>
+                  <button class="btn-add" onclick="agregarCarrito('HG-01', 'Silla Ergonómica Pro', 4500, 'https://placehold.co/600x600/0f172a/white?text=Silla+Gamer')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/3b82f6/white?text=Laptop+Gunter" alt="Laptop">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$15,400.00</span>
+                  <h6 class="item-title text-truncate">Laptop Gunter Book 14"</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Centro</p>
+                  <button class="btn-add" onclick="agregarCarrito('HW-03', 'Laptop Gunter Book 14', 15400, 'https://placehold.co/600x600/3b82f6/white?text=Laptop+Gunter')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </main>
     </div>
   </div>
-</div>
 
-
-      <div class="col-md-4 mb-4">
-  <div class="card product-card h-100">
-    <img src="https://m.media-amazon.com/images/I/51Jj2bZkIkL._AC_UY1000_.jpg" class="card-img-top" alt="Prototipo 1" />
-    <div class="card-body text-center">
-      <h5 class="card-title">Sueter Hidrofobico de vestir</h5>
-      <p class="card-text">$999 MXN</p>
-      <a href="producto.html?name=Prototipo%201&price=999&img=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F51Jj2bZkIkL._AC_UY1000_.jpg&desc=Suéter%20prototipo%20con%20diseño%20moderno%20y%20acabado%20hidrofóbico." class="btn btn-dark mb-2">Ver detalles</a>
-      <button class="btn custom-btn" onclick="agregarCarrito('Prototipo 1', 999)">Agregar al carrito</button>
-    </div>
-  </div>
-</div>
-
-<div class="col-md-4 mb-4">
-  <div class="card product-card h-100">
-    <img src="https://m.media-amazon.com/images/I/61EMEFgthjL._AC_UY1000_.jpg" class="card-img-top" alt="Suéter casual" />
-    <div class="card-body text-center">
-      <h5 class="card-title">Suéter casual</h5>
-      <p class="card-text">$849 MXN</p>
-      <a href="producto.html?name=Suéter%20casual&price=849&img=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F61EMEFgthjL._AC_UY1000_.jpg&desc=Suéter%20casual%20hidrofóbico%20ideal%20para%20uso%20diario%20con%20comodidad%20y%20estilo." class="btn btn-dark mb-2">Ver detalles</a>
-      <button class="btn custom-btn" onclick="agregarCarrito('Suéter casual', 849)">Agregar al carrito</button>
-    </div>
-  </div>
-</div>
-  </section>
-  <h2 class="text-center mb-4">Productos Generales</h2>
-  <div class="row">
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/w/4/sueter-tejido-canale-manga-dolman-azul-franciaJszL.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Suéter Hidrofóbico Azul">
-        <div class="card-body">
-          <h5 class="card-title">Suéter Hidrofóbico Azul</h5>
-          <p class="card-text">$1,600.00 MXN</p>
-          <a href="producto.html?name=Suéter%20Hidrofóbico%20Azul&price=1600&img=https://julio.com/media/catalog/product/w/4/sueter-tejido-canale-manga-dolman-azul-franciaJszL.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Suéter%20hidrofóbico%20color%20azul%20con%20tecnología%20repelente%20al%20agua%20y%20ajuste%20moderno." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Suéter Hidrofóbico Azul', 1600)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/w/4/sueter-tejido-mostaza-escote-v-con-ribetesSelH.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Suéter Hidrofóbico Amarillo">
-        <div class="card-body">
-          <h5 class="card-title">Suéter Hidrofóbico Amarillo</h5>
-          <p class="card-text">$1,650.00 MXN</p>
-          <a href="producto.html?name=Suéter%20Hidrofóbico%20Amarillo&price=1650&img=https://julio.com/media/catalog/product/w/4/sueter-tejido-mostaza-escote-v-con-ribetesSelH.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Suéter%20hidrofóbico%20color%20amarillo%20con%20repelencia%20al%20agua%20y%20diseño%20moderno." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Suéter Hidrofóbico Amarillo', 1650)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/2/4/camisa-blanca-entalladaMqmk.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Camisa Hidrofóbica Blanca">
-        <div class="card-body">
-          <h5 class="card-title">Camisa Hidrofóbica Blanca</h5>
-          <p class="card-text">$700.00 MXN</p>
-          <a href="producto.html?name=Camisa%20Hidrofóbica%20Blanca&price=700&img=https://julio.com/media/catalog/product/2/4/camisa-blanca-entalladaMqmk.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Camisa%20hidrofóbica%20blanca%20ideal%20para%20climas%20húmedos%20y%20actividades%20al%20aire%20libre." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Camisa Hidrofóbica Blanca', 700)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/1/3/pantalon-negro-entubado-con-cinturonWl2r.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Pantalones Hidrofóbicos">
-        <div class="card-body">
-          <h5 class="card-title">Pantalones Hidrofóbicos</h5>
-          <p class="card-text">$1,200.00 MXN</p>
-          <a href="producto.html?name=Pantalones%20Hidrofóbicos&price=1200&img=https://julio.com/media/catalog/product/1/3/pantalon-negro-entubado-con-cinturonWl2r.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Pantalones%20con%20tecnología%20hidrofóbica%20para%20máximo%20confort%20y%20estilo%20urbano." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Pantalones Hidrofóbicos', 1200)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOEebsc6_zjryZa8DyeUovcKUPWTHhadxPew&s" class="card-img-top" alt="Camisa Negra Hidrofóbica">
-        <div class="card-body">
-          <h5 class="card-title">Camisa Negra Hidrofóbica</h5>
-          <p class="card-text">$1,700.00 MXN</p>
-          <a href="producto.html?name=Camisa%20Negra%20Hidrofóbica&price=1700&img=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOEebsc6_zjryZa8DyeUovcKUPWTHhadxPew&s&desc=Camisa%20negra%20con%20acabado%20hidrofóbico%20y%20corte%20elegante%20para%20uso%20diario." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Camisa Negra Hidrofóbica', 1700)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/6/5/blusa-tipo-polo-amarilla-tejido-canale-escote-con-cierre.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Camisa Amarilla Hidrofóbica">
-        <div class="card-body">
-          <h5 class="card-title">Camisa Amarilla Hidrofóbica</h5>
-          <p class="card-text">$1,100.00 MXN</p>
-          <a href="producto.html?name=Camisa%20Amarilla%20Hidrofóbica&price=1100&img=https://julio.com/media/catalog/product/6/5/blusa-tipo-polo-amarilla-tejido-canale-escote-con-cierre.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Camisa%20amarilla%20repelente%20al%20agua,%20perfecta%20para%20climas%20húmedos%20y%20uso%20diario." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Camisa Amarilla Hidrofóbica', 1100)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/6/3/blusa-camisera-plateada-manga-largad5LR.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Camisa Manga Larga Hidrofóbica">
-        <div class="card-body">
-          <h5 class="card-title">Camisa Manga Larga Hidrofóbica</h5>
-          <p class="card-text">$1,600.00 MXN</p>
-          <a href="producto.html?name=Camisa%20Manga%20Larga%20Hidrofóbica&price=1600&https://julio.com/media/catalog/product/6/3/blusa-camisera-plateada-manga-largad5LR.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Camisa Manga Larga Hidrofóbica', 1600)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/w/4/sueter-negro-tejido-canale-envolvente.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Suéter Negro Hidrofóbico">
-        <div class="card-body">
-          <h5 class="card-title">Suéter Negro Hidrofóbico</h5>
-          <p class="card-text">$850.00 MXN</p>
-          <a href="producto.html?name=Suéter%20Negro%20Hidrofóbico&price=850&img=https://julio.com/media/catalog/product/w/4/sueter-negro-tejido-canale-envolvente.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Suéter%20negro%20con%20tratamiento%20hidrofóbico%20y%20diseño%20casual%20para%20uso%20cotidiano." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Suéter Negro Hidrofóbico', 850)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/1/4/shorts-tiro-alto-de-tweed-blanco-y-negro.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Short Hidrofóbico">
-        <div class="card-body">
-          <h5 class="card-title">Short Hidrofóbico</h5>
-          <p class="card-text">$750.00 MXN</p>
-          <a href="producto.html?name=Short%20Hidrofóbico&price=750&img=https://julio.com/media/catalog/product/1/4/shorts-tiro-alto-de-tweed-blanco-y-negro.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Short%20con%20tecnología%20hidrofóbica%20ideal%20para%20actividades%20al%20aire%20libre." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Short Hidrofóbico', 750)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <img src="https://julio.com/media/catalog/product/r/4/sueter-tejido-canale-tipo-sudadera-cafem2cu.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638" class="card-img-top" alt="Suéter Café Hidrofóbico">
-        <div class="card-body">
-          <h5 class="card-title">Suéter Café Hidrofóbico</h5>
-          <p class="card-text">$1,300.00 MXN</p>
-          <a href="producto.html?name=Suéter%20Café%20Hidrofóbico&price=1300&img=https://julio.com/media/catalog/product/r/4/sueter-tejido-canale-tipo-sudadera-cafem2cu.jpg?quality=80&bg-color=255,255,255&height=638&width=508&canvas=508:638&desc=Suéter%20café%20de%20alta%20resistencia%20al%20agua,%20perfecto%20para%20temporadas%20frías." class="btn btn-dark">Ver detalles</a>
-          <button class="btn custom-btn" onclick="agregarCarrito('Suéter Café Hidrofóbico', 1300)">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Gunter. Todos los derechos reservados.</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="app.js"></script>
+  <script src="java/Java.js"></script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunter | Tu Mercado Local</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<main class="col-lg-9">
+  <!-- Botón Volver -->
+  <div class="mb-4">
+    <a href="index.html" class="btn-back">
+      <i class="bi bi-arrow-left-short"></i> Volver al inicio
+    </a>
+  </div>
+  <h4 class="fw-bold mb-4">Todo para tu Hogar</h4>
+  <div class="row g-4">
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Lampara+LED" alt="Home"></div>
+        <div class="item-info">
+          <span class="item-price">$550</span>
+          <h6 class="item-title text-truncate">Lámpara LED Inteligente</h6>
+          <p class="item-location">Zona Río</p>
+          <button class="btn-add" onclick="agregarCarrito('Lampara', 550)">Añadir</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Silla+Ergo" alt="Home"></div>
+        <div class="item-info">
+          <span class="item-price">$2,800</span>
+          <h6 class="item-title text-truncate">Silla Ergonómica Pro</h6>
+          <p class="item-location">Otay</p>
+          <button class="btn-add" onclick="agregarCarrito('Silla', 2800)">Añadir</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Escritorio" alt="Home"></div>
+        <div class="item-info">
+          <span class="item-price">$1,950</span>
+          <h6 class="item-title text-truncate">Escritorio Estilo Industrial</h6>
+          <p class="item-location">Tijuana</p>
+          <button class="btn-add" onclick="agregarCarrito('Escritorio', 1950)">Añadir</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Maceta+Ceramica" alt="Home"></div>
+        <div class="item-info">
+          <span class="item-price">$220</span>
+          <h6 class="item-title text-truncate">Maceta de Cerámica Gris</h6>
+          <p class="item-location">Playas de Tijuana</p>
+          <button class="btn-add" onclick="agregarCarrito('Maceta', 220)">Añadir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

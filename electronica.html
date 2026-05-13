@@ -1,0 +1,72 @@
+<!-- ... (Mismo Header que index.html) ... -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunter | Electrónica</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<link rel="stylesheet" href="style.css">
+<main class="col-lg-9">
+  <!-- Botón Volver -->
+  <div class="mb-4">
+    <a href="index.html" class="btn-back">
+      <i class="bi bi-arrow-left-short"></i> Volver al inicio
+    </a>
+  </div>
+  <h4 class="fw-bold mb-4">Hardware y Tecnología</h4>
+  <div class="row g-4">
+    <!-- Producto 1 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=RX+9060+XT" alt="GPU"></div>
+        <div class="item-info">
+          <span class="item-price">$8,999</span>
+          <h6 class="item-title text-truncate">Radeon RX 9060 XT</h6>
+          <p class="item-location">Playas de Tijuana</p>
+          <button class="btn-add" onclick="agregarCarrito('RX 9060 XT', 8999)">Añadir</button>
+        </div>
+      </div>
+    </div>
+    <!-- Producto 2 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Ryzen+5+5600X" alt="CPU"></div>
+        <div class="item-info">
+          <span class="item-price">$3,200</span>
+          <h6 class="item-title text-truncate">Ryzen 5 5600X</h6>
+          <p class="item-location">Otay</p>
+          <button class="btn-add" onclick="agregarCarrito('Ryzen 5 5600X', 3200)">Añadir</button>
+        </div>
+      </div>
+    </div>
+    <!-- Producto 3 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=i7-9700k" alt="CPU"></div>
+        <div class="item-info">
+          <span class="item-price">$4,500</span>
+          <h6 class="item-title text-truncate">Intel Core i7-9700k</h6>
+          <p class="item-location">Zona Río</p>
+          <button class="btn-add" onclick="agregarCarrito('i7-9700k', 4500)">Añadir</button>
+        </div>
+      </div>
+    </div>
+    <!-- Producto 4 -->
+    <div class="col-md-3 col-sm-6">
+      <div class="item-card">
+        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Monitor+144Hz" alt="Monitor"></div>
+        <div class="item-info">
+          <span class="item-price">$4,100</span>
+          <h6 class="item-title text-truncate">Monitor 24" 144Hz</h6>
+          <p class="item-location">Vía Rápida</p>
+          <button class="btn-add" onclick="agregarCarrito('Monitor 144Hz', 4100)">Añadir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
