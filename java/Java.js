@@ -145,9 +145,11 @@ function mostrarCarrito() {
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
                     <div class="me-3" style="width: 70px; height: 70px;">
-                        <img src="${producto.imagen}" alt="${producto.nombre}" 
-                             class="rounded shadow-sm" 
-                             style="width: 100%; height: 100%; object-fit: cover;">
+<img src="${producto.imagen}" 
+     alt="${producto.nombre}" 
+     class="rounded shadow-sm" 
+     style="width: 100%; height: 100%; object-fit: cover;"
+     onerror="this.src='https://placehold.co/200x200?text=Sin+Imagen'">
                     </div>
                     <div>
                         <h6 class="mb-0 fw-bold">${producto.nombre}</h6>
