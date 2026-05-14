@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gunter | Premium Marketplace</title>
+  <title>Gunter | Tech & Lifestyle Marketplace</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
@@ -19,7 +19,7 @@
       
       <div class="search-container d-none d-md-flex">
         <i class="bi bi-search text-muted"></i>
-        <input type="text" id="search-input" placeholder="Busca marcas, hardware y más...">
+        <input type="text" id="search-input" placeholder="Busca hardware, ropa, drops...">
       </div>
 
       <div class="d-flex align-items-center gap-4">
@@ -27,7 +27,7 @@
           <i class="bi bi-bag fs-4"></i>
           <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
         </a>
-        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender</button>
+        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender Producto</button>
       </div>
     </div>
   </header>
@@ -36,37 +36,49 @@
     <div class="row">
       <aside class="col-lg-3">
         <div class="category-menu sticky-top" style="top: 100px;">
-          <p class="sidebar-section-title">Marketplace</p>
-          <a href="index.html" class="cat-item active"><i class="bi bi-grid"></i> Todo</a>
-          <a href="hogar.html" class="cat-item"><i class="bi bi-house"></i> Hogar</a>
-
+          <p class="sidebar-section-title">Explorar</p>
+          <a href="index.html" class="cat-item active"><i class="bi bi-fire text-danger"></i> Tendencias 🔥</a>
+          <p class="sidebar-section-title">Departamentos</p>
+          <a href="electronica.html" class="cat-item"><i class="bi bi-cpu"></i> Hardware Pro</a>
+          <a href="moda.html" class="cat-item"><i class="bi bi-person-arms-up"></i> Ropa & Style</a>
+          <a href="deportes.html" class="cat-item"><i class="bi bi-trophy"></i> Deportes</a>        
+          <a href="hogar.html" class="cat-item"><i class="bi bi-house-heart"></i> Hogar</a>
           <p class="sidebar-section-title">Administración</p>
-          <a href="categorias.html" class="cat-item"><i class="bi bi-tags"></i> Categorías</a>
-          <a href="productos-gestion.html" class="cat-item"><i class="bi bi-box-seam"></i> Productos</a>
-          <a href="usuarios.html" class="cat-item"><i class="bi bi-people"></i> Usuarios</a>
+          <a href="productos-gestion.html" class="cat-item"><i class="bi bi-box-seam"></i> Gestión Stock</a>
+          <a href="usuarios.html" class="cat-item"><i class="bi bi-people"></i> Comunidad</a>
         </div>
       </aside>
 
       <main class="col-lg-9">
+        <section class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
+                 style="background: linear-gradient(45deg, #000000 0%, #2563eb 100%); min-height: 250px;">
+          <div class="col-md-7">
+            <span class="badge bg-primary mb-2 fw-bold">NUEVA COLECCIÓN</span>
+            <h2 class="fw-bold display-5">Tech-Wear & High End</h2>
+            <p class="fs-5 opacity-75">Desde la RTX 5090 hasta la sudadera oficial de Gunter. Todo en un solo lugar.</p>
+            <button class="btn btn-light rounded-pill px-4 py-2 fw-bold text-primary shadow">Ver Catálogo Completo</button>
+          </div>
+        </section>
+
         <section id="productos">
           <div class="d-flex justify-content-between align-items-end mb-4">
-            <h3 class="fw-bold m-0">Catálogo General</h3>
-            <span class="text-muted small">Tijuana, BC</span>
+            <h3 class="fw-bold m-0">Drops Calientes</h3>
+            <span class="text-muted small">Tijuana, BC | Stock Actualizado</span>
           </div>
 
-          <div class="row g-4">
+          <div class="row g-4" id="product-grid">
             
             <div class="col-md-4 col-sm-6">
               <div class="item-card">
                 <div class="img-wrapper">
-                  <span class="badge-premium">Más Vendido</span>
-                  <img src="https://placehold.co/600x600/2563eb/white?text=RX+9060+XT" alt="GPU">
+                  <span class="badge-premium bg-dark">Hardware</span>
+                  <img src="https://placehold.co/600x600/1e293b/white?text=RTX+5090" alt="GPU">
                 </div>
                 <div class="item-info">
-                  <span class="item-price">$8,999.00</span>
-                  <h6 class="item-title text-truncate">AMD Radeon RX 9060 XT</h6>
+                  <span class="item-price">$32,499.00</span>
+                  <h6 class="item-title text-truncate">NVIDIA RTX 5090 Founders Edition</h6>
                   <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Zona Río</p>
-                  <button class="btn-add" onclick="agregarCarrito('HW-01', 'AMD Radeon RX 9060 XT', 8999, 'https://placehold.co/600x600/2563eb/white?text=RX+9060+XT')">
+                  <button class="btn-add w-100" onclick="agregarCarrito('H-01', 'RTX 5090 Founders', 32499, 'https://placehold.co/600x600/1e293b/white?text=RTX+5090')">
                     Añadir al carrito
                   </button>
                 </div>
@@ -76,13 +88,14 @@
             <div class="col-md-4 col-sm-6">
               <div class="item-card">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/1e293b/white?text=Ryzen+5600X" alt="CPU">
+                  <span class="badge-premium bg-info">Ropa</span>
+                  <img src="https://placehold.co/600x600/000000/white?text=Gunter+Hoodie" alt="Hoodie">
                 </div>
                 <div class="item-info">
-                  <span class="item-price">$3,200.00</span>
-                  <h6 class="item-title text-truncate">Procesador Ryzen 5 5600X</h6>
+                  <span class="item-price">$850.00</span>
+                  <h6 class="item-title text-truncate">Hoodie Oversize "Gunter Core" Black</h6>
                   <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Otay</p>
-                  <button class="btn-add" onclick="agregarCarrito('HW-02', 'Ryzen 5 5600X', 3200, 'https://placehold.co/600x600/1e293b/white?text=Ryzen+5600X')">
+                  <button class="btn-add w-100" onclick="agregarCarrito('R-01', 'Gunter Hoodie Black', 850, 'https://placehold.co/600x600/000000/white?text=Gunter+Hoodie')">
                     Añadir al carrito
                   </button>
                 </div>
@@ -92,13 +105,14 @@
             <div class="col-md-4 col-sm-6">
               <div class="item-card">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/0f172a/white?text=Silla+Gamer" alt="Silla">
+                  <span class="badge-premium bg-dark">Hardware</span>
+                  <img src="https://placehold.co/600x600/000000/white?text=Steam+Deck" alt="Steam Deck">
                 </div>
                 <div class="item-info">
-                  <span class="item-price">$4,500.00</span>
-                  <h6 class="item-title text-truncate">Silla Ergonómica Pro</h6>
+                  <span class="item-price">$12,800.00</span>
+                  <h6 class="item-title text-truncate">Steam Deck OLED 1TB</h6>
                   <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Playas</p>
-                  <button class="btn-add" onclick="agregarCarrito('HG-01', 'Silla Ergonómica Pro', 4500, 'https://placehold.co/600x600/0f172a/white?text=Silla+Gamer')">
+                  <button class="btn-add w-100" onclick="agregarCarrito('H-02', 'Steam Deck OLED', 12800, 'https://placehold.co/600x600/000000/white?text=Steam+Deck')">
                     Añadir al carrito
                   </button>
                 </div>
@@ -108,13 +122,48 @@
             <div class="col-md-4 col-sm-6">
               <div class="item-card">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/3b82f6/white?text=Laptop+Gunter" alt="Laptop">
+                  <span class="badge-premium bg-info">Ropa</span>
+                  <img src="https://placehold.co/600x600/f8fafc/black?text=Cyber+Tee" alt="Tee">
                 </div>
                 <div class="item-info">
-                  <span class="item-price">$15,400.00</span>
-                  <h6 class="item-title text-truncate">Laptop Gunter Book 14"</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Centro</p>
-                  <button class="btn-add" onclick="agregarCarrito('HW-03', 'Laptop Gunter Book 14', 15400, 'https://placehold.co/600x600/3b82f6/white?text=Laptop+Gunter')">
+                  <span class="item-price">$450.00</span>
+                  <h6 class="item-title text-truncate">Playera "Cyberpunk Tijuana" Edition</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> La Cacho</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('R-02', 'Cyberpunk Tee', 450, 'https://placehold.co/600x600/f8fafc/black?text=Cyber+Tee')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-dark">Hardware</span>
+                  <img src="https://placehold.co/600x600/475569/white?text=OLED+Monitor" alt="Monitor">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$18,900.00</span>
+                  <h6 class="item-title text-truncate">Alienware 34" Curved QD-OLED</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Zona Río</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('H-03', 'Alienware 34 OLED', 18900, 'https://placehold.co/600x600/475569/white?text=OLED+Monitor')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-info">Ropa</span>
+                  <img src="https://placehold.co/600x600/18181b/white?text=Tech+Cap" alt="Cap">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$380.00</span>
+                  <h6 class="item-title text-truncate">Gorra Gunter Dad Hat - Bordada</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Soler</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('R-03', 'Gunter Cap', 380, 'https://placehold.co/600x600/18181b/white?text=Tech+Cap')">
                     Añadir al carrito
                   </button>
                 </div>

@@ -3,63 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gunter | Tu Mercado Local</title>
+  <title>Gunter | Hogar & Esenciales</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
-<main class="col-lg-9">
-  <!-- Botón Volver -->
-  <div class="mb-4">
-    <a href="index.html" class="btn-back">
-      <i class="bi bi-arrow-left-short"></i> Volver al inicio
-    </a>
+<body>
+
+  <header class="main-header">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <a class="logo" href="index.html">Gunter<span>.</span></a>
+      
+      <div class="search-container d-none d-md-flex">
+        <i class="bi bi-search text-muted"></i>
+        <input type="text" id="search-input" placeholder="Busca tapetes, espejos, organizadores...">
+      </div>
+
+      <div class="d-flex align-items-center gap-4">
+        <a href="carrito.html" class="text-dark text-decoration-none position-relative">
+          <i class="bi bi-bag fs-4"></i>
+          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
+        </a>
+        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-5">
+    <div class="row">
+      <aside class="col-lg-3">
+        <div class="category-menu sticky-top" style="top: 100px;">
+          <p class="sidebar-section-title">Navegación</p>
+          <a href="index.html" class="cat-item"><i class="bi bi-arrow-left"></i> Inicio</a>
+          <a href="hogar.html" class="cat-item active"><i class="bi bi-house-heart"></i> Hogar</a>
+          <a href="electronica.html" class="cat-item"><i class="bi bi-cpu"></i> Electrónica</a>
+          <a href="moda.html" class="cat-item"><i class="bi bi-person-arms-up"></i> Moda</a>
+          <a href="deportes.html" class="cat-item"><i class="bi bi-trophy"></i> Deportes</a>
+          
+          <p class="sidebar-section-title">Secciones</p>
+          <a href="#" class="cat-item small"><i class="bi bi-door-open"></i> Recámara</a>
+          <a href="#" class="cat-item small"><i class="bi bi-droplet"></i> Baño</a>
+          <a href="#" class="cat-item small"><i class="bi bi-box-seam"></i> Organización</a>
+        </div>
+      </aside>
+
+      <main class="col-lg-9">
+        <section class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
+                 style="background: linear-gradient(135deg, #a8a29e 0%, #78716c 100%); min-height: 200px;">
+          <div>
+            <span class="badge bg-light text-dark mb-2 fw-bold">LO ESENCIAL</span>
+            <h2 class="fw-bold display-6">Haz de tu casa un hogar</h2>
+            <p class="opacity-75">Básicos de calidad, textiles y decoración para cada rincón.</p>
+          </div>
+        </section>
+
+        <section id="productos-hogar">
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="fw-bold m-0">Esenciales para el Hogar</h3>
+            <span class="text-muted small">Disponibilidad en Tijuana</span>
+          </div>
+
+          <div class="row g-4" id="product-grid">
+            
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-secondary">Más Buscado</span>
+                  <img src="https://placehold.co/600x600/e7e5e4/44403c?text=Tapete+Minimalista" alt="Tapete">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$1,150.00</span>
+                  <h6 class="item-title text-truncate">Tapete de Área Minimalista 1.2m x 1.7m</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> La Mesa</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('HO-01', 'Tapete Minimalista', 1150, 'https://placehold.co/600x600/e7e5e4/44403c?text=Tapete+Minimalista')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/fafaf9/78716c?text=Espejo+Circular" alt="Espejo">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$890.00</span>
+                  <h6 class="item-title text-truncate">Espejo Circular de Pared con Marco Negro</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Playas</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('HO-02', 'Espejo Circular', 890, 'https://placehold.co/600x600/fafaf9/78716c?text=Espejo+Circular')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-dark">Pack x3</span>
+                  <img src="https://placehold.co/600x600/f5f5f4/57534e?text=Organizadores" alt="Organizadores">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$420.00</span>
+                  <h6 class="item-title text-truncate">Set de Canastas Organizadoras de Tela</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Soler</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('HO-03', 'Set Organizadores', 420, 'https://placehold.co/600x600/f5f5f4/57534e?text=Organizadores')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/292524/white?text=Lampara+Pie" alt="Lampara">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$1,450.00</span>
+                  <h6 class="item-title text-truncate">Lámpara de Pie Estilo Industrial</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Cacho</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('HO-04', 'Lampara de Pie', 1450, 'https://placehold.co/600x600/292524/white?text=Lampara+Pie')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-primary">Premium</span>
+                  <img src="https://placehold.co/600x600/f1f5f9/475569?text=Toallas+Algodon" alt="Toallas">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$680.00</span>
+                  <h6 class="item-title text-truncate">Juego de Toallas 100% Algodón (4 piezas)</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Centro</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('HO-05', 'Juego Toallas', 680, 'https://placehold.co/600x600/f1f5f9/475569?text=Toallas+Algodon')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/44403c/white?text=Cortinas+Blackout" alt="Cortinas">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$750.00</span>
+                  <h6 class="item-title text-truncate">Cortinas Blackout Térmicas (Par)</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Otay Mastodontes</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('HO-06', 'Cortinas Blackout', 750, 'https://placehold.co/600x600/44403c/white?text=Cortinas+Blackout')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </main>
+    </div>
   </div>
-  <h4 class="fw-bold mb-4">Todo para tu Hogar</h4>
-  <div class="row g-4">
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Lampara+LED" alt="Home"></div>
-        <div class="item-info">
-          <span class="item-price">$550</span>
-          <h6 class="item-title text-truncate">Lámpara LED Inteligente</h6>
-          <p class="item-location">Zona Río</p>
-          <button class="btn-add" onclick="agregarCarrito('Lampara', 550)">Añadir</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Silla+Ergo" alt="Home"></div>
-        <div class="item-info">
-          <span class="item-price">$2,800</span>
-          <h6 class="item-title text-truncate">Silla Ergonómica Pro</h6>
-          <p class="item-location">Otay</p>
-          <button class="btn-add" onclick="agregarCarrito('Silla', 2800)">Añadir</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Escritorio" alt="Home"></div>
-        <div class="item-info">
-          <span class="item-price">$1,950</span>
-          <h6 class="item-title text-truncate">Escritorio Estilo Industrial</h6>
-          <p class="item-location">Tijuana</p>
-          <button class="btn-add" onclick="agregarCarrito('Escritorio', 1950)">Añadir</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Maceta+Ceramica" alt="Home"></div>
-        <div class="item-info">
-          <span class="item-price">$220</span>
-          <h6 class="item-title text-truncate">Maceta de Cerámica Gris</h6>
-          <p class="item-location">Playas de Tijuana</p>
-          <button class="btn-add" onclick="agregarCarrito('Maceta', 220)">Añadir</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+
+  <script src="java/Java.js"></script>
+</body>
+</html>

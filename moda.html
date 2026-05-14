@@ -3,64 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gunter | Electrónica</title>
+  <title>Gunter | Moda & Style</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
-<main class="col-lg-9">
-  <!-- Botón Volver -->
-  <div class="mb-4">
-    <a href="index.html" class="btn-back">
-      <i class="bi bi-arrow-left-short"></i> Volver al inicio
-    </a>
+<body>
+
+  <header class="main-header">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <a class="logo" href="index.html">Gunter<span>.</span></a>
+      
+      <div class="search-container d-none d-md-flex">
+        <i class="bi bi-search text-muted"></i>
+        <input type="text" id="search-input" placeholder="Busca hoodies, calzado, accesorios...">
+      </div>
+
+      <div class="d-flex align-items-center gap-4">
+        <a href="carrito.html" class="text-dark text-decoration-none position-relative">
+          <i class="bi bi-bag fs-4"></i>
+          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
+        </a>
+        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender Ropa</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container my-5">
+    <div class="row">
+      <aside class="col-lg-3">
+        <div class="category-menu sticky-top" style="top: 100px;">
+          <p class="sidebar-section-title">Navegación</p>
+          <a href="index.html" class="cat-item"><i class="bi bi-arrow-left"></i> Volver al Inicio</a>
+          <a href="moda.html" class="cat-item active"><i class="bi bi-person-arms-up"></i> Ropa & Style</a>
+          
+          <p class="sidebar-section-title">Filtros de Ropa</p>
+          <a href="#" class="cat-item"><i class="bi bi-universal-access"></i> Streetwear</a>
+          <a href="#" class="cat-item"><i class="bi bi-watch"></i> Accesorios</a>
+          <a href="#" class="cat-item"><i class="bi bi-tsert"></i> Playeras Tech</a>
+        </div>
+      </aside>
+
+      <main class="col-lg-9">
+        <section class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
+                 style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); min-height: 200px;">
+          <div>
+            <span class="badge bg-white text-dark mb-2 fw-bold">DROP EXCLUSIVO</span>
+            <h2 class="fw-bold display-6">Gunter Apparel 2026</h2>
+            <p class="opacity-75">Vístete con el estilo que define a la comunidad tech de Tijuana.</p>
+          </div>
+        </section>
+
+        <section id="productos-moda">
+          <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="fw-bold m-0">Catálogo de Moda</h3>
+            <span class="text-muted small">Mostrando: Todo el Estilo</span>
+          </div>
+
+          <div class="row g-4" id="product-grid">
+            
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-danger">Nuevo Drop</span>
+                  <img src="https://placehold.co/600x600/000000/white?text=Gunter+Hoodie" alt="Hoodie">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$850.00</span>
+                  <h6 class="item-title text-truncate">Hoodie Oversize "Gunter Core"</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Otay</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('R-01', 'Gunter Hoodie Black', 850, 'https://placehold.co/600x600/000000/white?text=Gunter+Hoodie')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/f8fafc/black?text=Cyber+Tee" alt="Tee">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$450.00</span>
+                  <h6 class="item-title text-truncate">Playera "Cyberpunk TJ" Edition</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Centro</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('R-02', 'Cyberpunk Tee', 450, 'https://placehold.co/600x600/f8fafc/black?text=Cyber+Tee')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-dark">Más Vendido</span>
+                  <img src="https://placehold.co/600x600/18181b/white?text=Tech+Cap" alt="Cap">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$380.00</span>
+                  <h6 class="item-title text-truncate">Gorra Gunter Dad Hat Bordada</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> La Mesa</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('R-03', 'Gunter Cap', 380, 'https://placehold.co/600x600/18181b/white?text=Tech+Cap')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/000000/white?text=Tech+Jacket" alt="Jacket">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$1,450.00</span>
+                  <h6 class="item-title text-truncate">Chaqueta Impermeable Techwear</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Playas</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('R-04', 'Techwear Jacket', 1450, 'https://placehold.co/600x600/000000/white?text=Tech+Jacket')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </main>
+    </div>
   </div>
-</main>
-  <h4 class="fw-bold mb-4">Ropa & Moda</h4>
-  <div class="row g-4">
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Sueter+Elegante" alt="Moda"></div>
-        <div class="item-info">
-          <span class="item-price">$749</span>
-          <h6 class="item-title text-truncate">Suéter de Punto Minimal</h6>
-          <p class="item-location">Cacho</p>
-          <button class="btn-add" onclick="agregarCarrito('Suéter Elegante', 749)">Añadir</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Camisa+Blanca" alt="Moda"></div>
-        <div class="item-info">
-          <span class="item-price">$700</span>
-          <h6 class="item-title text-truncate">Camisa Hidrofóbica Slim</h6>
-          <p class="item-location">Macroplaza</p>
-          <button class="btn-add" onclick="agregarCarrito('Camisa Blanca', 700)">Añadir</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Jeans+Tech" alt="Moda"></div>
-        <div class="item-info">
-          <span class="item-price">$1,200</span>
-          <h6 class="item-title text-truncate">Pantalones Tech Dark</h6>
-          <p class="item-location">Zona Centro</p>
-          <button class="btn-add" onclick="agregarCarrito('Pantalones', 1200)">Añadir</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <div class="item-card">
-        <div class="img-wrapper"><img src="https://placehold.co/400x500?text=Short+Deportivo" alt="Moda"></div>
-        <div class="item-info">
-          <span class="item-price">$750</span>
-          <h6 class="item-title text-truncate">Short de Secado Rápido</h6>
-          <p class="item-location">Libertad</p>
-          <button class="btn-add" onclick="agregarCarrito('Short', 750)">Añadir</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+
+  <script src="java/Java.js"></script>
+</body>
+</html>
