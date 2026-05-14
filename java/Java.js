@@ -6,9 +6,6 @@ let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 // ==========================================
 // 2. FUNCIONALIDAD DE BÚSQUEDA (FILTRO)
 // ==========================================
-/**
- * Filtra los productos en el index.html basándose en el título.
- */
 function inicializarBuscador() {
     const searchInput = document.getElementById('search-input');
     const productCards = document.querySelectorAll('.item-card');
@@ -32,7 +29,6 @@ function inicializarBuscador() {
             }
         });
 
-        // Mostrar u ocultar mensaje de "No hay resultados"
         if (hasVisibleCards) {
             noResults.classList.add('d-none');
         } else {
@@ -45,11 +41,9 @@ function inicializarBuscador() {
 // 3. LÓGICA DEL CARRITO (GESTIÓN DE DATOS)
 // ==========================================
 
-/**
- * Añade un producto al carrito incluyendo su imagen.
- */
 function agregarCarrito(id, nombre, precio, imagen) {
-    const productoExistente = carrito.find(item => item.id === id);
+    // Convertimos el ID a string para evitar errores de comparación entre DB y JS
+    const productoExistente = carrito.find(item => String(item.id) === String(id));
 
     if (productoExistente) {
         productoExistente.cantidad += 1;
@@ -63,14 +57,12 @@ function agregarCarrito(id, nombre, precio, imagen) {
         });
     }
     actualizarTodo();
+    // Uso de backticks para el log dinámico
     console.log(`Añadido: ${nombre}`);
 }
 
-/**
- * Cambia la cantidad usando los botones + y -
- */
 function cambiarCantidad(id, cambio) {
-    const producto = carrito.find(item => item.id === id);
+    const producto = carrito.find(item => String(item.id) === String(id));
     if (producto) {
         producto.cantidad += cambio;
         if (producto.cantidad <= 0) {
@@ -81,12 +73,9 @@ function cambiarCantidad(id, cambio) {
     }
 }
 
-/**
- * Actualiza la cantidad cuando el usuario escribe directamente en el input
- */
 function actualizarCantidadManual(id, valor) {
     const nuevaCantidad = parseInt(valor);
-    const producto = carrito.find(item => item.id === id);
+    const producto = carrito.find(item => String(item.id) === String(id));
 
     if (producto && !isNaN(nuevaCantidad) && nuevaCantidad > 0) {
         producto.cantidad = nuevaCantidad;
@@ -97,7 +86,7 @@ function actualizarCantidadManual(id, valor) {
 }
 
 function eliminarDelCarrito(id) {
-    carrito = carrito.filter(item => item.id !== id);
+    carrito = carrito.filter(item => String(item.id) !== String(id));
     actualizarTodo();
 }
 
@@ -112,9 +101,6 @@ function limpiarCarrito() {
 // 4. RENDERIZADO Y UI (INTERFAZ)
 // ==========================================
 
-/**
- * Dibuja los productos en la página del carrito y actualiza totales
- */
 function mostrarCarrito() {
     const lista = document.getElementById('cart-items');
     const totalElemento = document.getElementById('cart-total');
@@ -145,15 +131,15 @@ function mostrarCarrito() {
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
                     <div class="me-3" style="width: 70px; height: 70px;">
-<img src="${producto.imagen}" 
-     alt="${producto.nombre}" 
-     class="rounded shadow-sm" 
-     style="width: 100%; height: 100%; object-fit: cover;"
-     onerror="this.src='https://placehold.co/200x200?text=Sin+Imagen'">
+                        <img src="${producto.imagen}" 
+                             alt="${producto.nombre}" 
+                             class="rounded shadow-sm" 
+                             style="width: 100%; height: 100%; object-fit: cover;"
+                             onerror="this.src='https://placehold.co/200x200?text=Sin+Imagen'">
                     </div>
                     <div>
                         <h6 class="mb-0 fw-bold">${producto.nombre}</h6>
-                        <small class="text-muted">$${producto.precio.toLocaleString()}</small>
+                        <small class="text-muted">$${producto.precio.toLocaleString('es-MX')}</small>
                     </div>
                 </div>
                 
@@ -166,7 +152,7 @@ function mostrarCarrito() {
                         <button class="btn btn-outline-secondary" onclick="cambiarCantidad('${producto.id}', 1)">+</button>
                     </div>
 
-                    <span class="fw-bold me-3" style="min-width: 90px; text-align: right;">$${subtotal.toLocaleString()}</span>
+                    <span class="fw-bold me-3" style="min-width: 90px; text-align: right;">$${subtotal.toLocaleString('es-MX')}</span>
                     
                     <button class="btn btn-sm text-danger ms-2" onclick="eliminarDelCarrito('${producto.id}')">
                         <i class="bi bi-trash"></i>
@@ -177,33 +163,29 @@ function mostrarCarrito() {
         lista.appendChild(li);
     });
 
-    // Actualizar números en el resumen de compra
     if (totalElemento) totalElemento.innerText = sumaTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 });
     if (subtotalElemento) subtotalElemento.innerText = `$${sumaTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })}`;
 }
 
 /**
- * Simulación de cierre de compra
+ * Simulación de cierre de compra (Actualizada a PHP)
  */
 function finalizarCompra() {
     if (carrito.length === 0) return alert("Tu carrito está vacío.");
     alert("¡Pedido realizado con éxito! Gracias por confiar en Gunter.");
     carrito = [];
     actualizarTodo();
-    window.location.href = "index.html";
+    // Cambiado a .php para el nuevo patrón dinámico
+    window.location.href = "index.php";
 }
 
 // ==========================================
 // 5. SINCRONIZACIÓN E INICIALIZACIÓN
 // ==========================================
 
-/**
- * Guarda en Storage y refresca todos los componentes visuales
- */
 function actualizarTodo() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
     
-    // Actualizar el numerito del badge en el header
     const badge = document.getElementById('cart-count');
     if (badge) {
         const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
@@ -211,11 +193,9 @@ function actualizarTodo() {
         badge.style.display = totalItems > 0 ? 'block' : 'none';
     }
     
-    // Refrescar la lista si estamos en la página del carrito
     mostrarCarrito();
 }
 
-// Ejecutar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     actualizarTodo();
     inicializarBuscador();

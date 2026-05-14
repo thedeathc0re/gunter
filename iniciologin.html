@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunter | Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light-gunter">
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <a href="index.html" class="back-link fw-bold">
+            <i class="bi bi-arrow-left-circle-fill me-2"></i>VOLVER A LA TIENDA
+        </a>
+    </div>
+
+    <div class="card login-card shadow-lg p-4">
+        <div class="text-center mb-4">
+            <h2 class="logo-text fw-bold mb-1">Gunter<span>.</span></h2>
+            <p class="text-muted">Ingresa a tu cuenta</p>
+        </div>
+        
+        <form id="login-form">
+            <div class="mb-3">
+                <label class="form-label-custom">CORREO ELECTRÓNICO</label>
+                <input type="email" id="email" class="form-control custom-input" placeholder="nombre@correo.com" required>
+            </div>
+            <div class="mb-4">
+                <label class="form-label-custom">CONTRASEÑA</label>
+                <input type="password" id="password" class="form-control custom-input" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn btn-gunter-primary w-100 py-3 shadow-sm">Entrar</button>
+            
+            <div class="text-center mt-4 pt-3 border-top">
+                <p class="small text-muted mb-2">¿Nuevo en la comunidad?</p>
+                <a href="registro.html" class="btn btn-outline-gunter w-100 rounded-pill fw-bold py-2">
+                    Crear una cuenta nueva
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="java/login.js"></script>
+</body>
+</html>
