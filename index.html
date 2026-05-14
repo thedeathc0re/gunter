@@ -3,83 +3,303 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Gunter | Tech & Lifestyle Marketplace</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
- <header class="main-header">
-  <div class="container d-flex justify-content-between align-items-center py-3">
-    <a class="logo" href="index.html">Gunter<span>.</span></a>
-    
-    <div class="search-container d-none d-md-flex">
-      <i class="bi bi-search text-muted"></i>
-      <input type="text" id="search-input" placeholder="Busca hardware, ropa, drops...">
+<body data-categoria="Tendencias">
+
+  <header class="main-header">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <a class="logo" href="index.html">Gunter<span>.</span></a>
+      
+      <div class="search-container d-none d-md-flex">
+        <i class="bi bi-search text-muted"></i>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Busca hardware, ropa, drops..."
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="iniciologin.html" class="btn btn-outline-dark rounded-pill px-3 fw-600 d-flex align-items-center gap-2">
+          <i class="bi bi-person-circle fs-5"></i>
+          <span class="d-none d-lg-inline">Entrar</span>
+        </a>
+
+        <a href="carrito.html" class="text-dark text-decoration-none position-relative ms-2" aria-label="Ver carrito">
+          <i class="bi bi-bag fs-4"></i>
+          <span 
+            id="cart-count" 
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
+            style="font-size: 0.6rem; display: none;"
+          >0</span>
+        </a>
+
+        <a href="productos-gestion.html" class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold shadow-sm">
+          Vender Producto
+        </a>
+      </div>
     </div>
-
-    <div class="d-flex align-items-center gap-3">
-      <a href="iniciologin.html" class="btn btn-outline-dark rounded-pill px-3 fw-600 d-flex align-items-center gap-2">
-        <i class="bi bi-person-circle fs-5"></i>
-        <span class="d-none d-lg-inline">Entrar</span>
-      </a>
-
-      <a href="carrito.html" class="text-dark text-decoration-none position-relative ms-2">
-        <i class="bi bi-bag fs-4"></i>
-        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
-      </a>
-
-      <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold shadow-sm">Vender Producto</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <div class="container my-5">
     <div class="row">
-      <aside class="col-lg-3">
+
+      <aside class="col-lg-3 mb-4 mb-lg-0">
         <div class="category-menu sticky-top" style="top: 100px;">
+
           <p class="sidebar-section-title">Explorar</p>
-          <a href="index.html" class="cat-item active"><i class="bi bi-fire text-danger"></i> Tendencias 🔥</a>
+
+          <a href="index.html" class="cat-item active">
+            <i class="bi bi-fire text-danger"></i> Tendencias 🔥
+          </a>
+
           <p class="sidebar-section-title">Departamentos</p>
-          <a href="electronica.html" class="cat-item"><i class="bi bi-cpu"></i> Hardware Pro</a>
-          <a href="moda.html" class="cat-item"><i class="bi bi-person-arms-up"></i> Ropa & Style</a>
-          <a href="deportes.html" class="cat-item"><i class="bi bi-trophy"></i> Deportes</a>        
-          <a href="hogar.html" class="cat-item"><i class="bi bi-house-heart"></i> Hogar</a>
+
+          <a href="electronica.html" class="cat-item">
+            <i class="bi bi-cpu"></i> Hardware Pro
+          </a>
+
+          <a href="moda.html" class="cat-item">
+            <i class="bi bi-person-arms-up"></i> Ropa & Style
+          </a>
+
+          <a href="deportes.html" class="cat-item">
+            <i class="bi bi-trophy"></i> Deportes
+          </a>        
+
+          <a href="hogar.html" class="cat-item">
+            <i class="bi bi-house-heart"></i> Hogar
+          </a>
+
           <p class="sidebar-section-title">Administración</p>
-          <a href="productos-gestion.html" class="cat-item"><i class="bi bi-box-seam"></i> Gestión Stock</a>
-          <a href="usuarios.html" class="cat-item"><i class="bi bi-people"></i> Comunidad</a>
+
+          <a href="productos-gestion.html" class="cat-item">
+            <i class="bi bi-box-seam"></i> Gestión Stock
+          </a>
+
+          <a href="usuarios.html" class="cat-item">
+            <i class="bi bi-people"></i> Comunidad
+          </a>
+
         </div>
       </aside>
 
       <main class="col-lg-9">
-        <section class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
-                 style="background: linear-gradient(45deg, #000000 0%, #2563eb 100%); min-height: 250px;">
+
+        <section 
+          class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
+          style="background: linear-gradient(45deg, #000000 0%, #2563eb 100%); min-height: 250px;"
+        >
           <div class="col-md-7">
             <span class="badge bg-primary mb-2 fw-bold">NUEVA COLECCIÓN</span>
-            <h2 class="fw-bold display-5">Tech-Wear & High End</h2>
+            <h1 class="fw-bold display-5">Tech-Wear & High End</h1>
             <p class="fs-5 opacity-75">Desde la RTX 5090 hasta la sudadera oficial de Gunter. Todo en un solo lugar.</p>
-            <button class="btn btn-light rounded-pill px-4 py-2 fw-bold text-primary shadow">Ver Catálogo Completo</button>
+
+            <a href="electronica.html" class="btn btn-light rounded-pill px-4 py-2 fw-bold text-primary shadow">
+              Ver Catálogo Completo
+            </a>
           </div>
         </section>
 
         <section id="productos">
           <div class="d-flex justify-content-between align-items-end mb-4">
-            <h3 class="fw-bold m-0">Drops Calientes</h3>
+            <div>
+              <h2 class="fw-bold m-0 h3">Drops Calientes</h2>
+              <p class="text-muted small mb-0">Productos destacados disponibles en Gunter</p>
+            </div>
+
             <span class="text-muted small">Tijuana, BC | Stock Actualizado</span>
           </div>
 
           <div class="row g-4" id="product-grid">
-            
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card" data-subcategoria="electronica">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-dark">Top Ventas</span>
+                  <img src="https://placehold.co/600x600/1e293b/white?text=RTX+5090" alt="NVIDIA RTX 5090 Founders Edition">
+                </div>
+
+                <div class="item-info">
+                  <span class="item-price">$32,499.00</span>
+                  <h6 class="item-title text-truncate">NVIDIA RTX 5090 Founders Edition</h6>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Zona Río
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-01"
+                    data-nombre="NVIDIA RTX 5090 Founders Edition"
+                    data-precio="32499"
+                    data-imagen="https://placehold.co/600x600/1e293b/white?text=RTX+5090"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card" data-subcategoria="moda">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-danger">Nuevo Drop</span>
+                  <img src="https://placehold.co/600x600/000000/white?text=Gunter+Hoodie" alt="Hoodie Oversize Gunter Core">
+                </div>
+
+                <div class="item-info">
+                  <span class="item-price">$850.00</span>
+                  <h6 class="item-title text-truncate">Hoodie Oversize "Gunter Core"</h6>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Otay
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="R-01"
+                    data-nombre='Hoodie Oversize "Gunter Core"'
+                    data-precio="850"
+                    data-imagen="https://placehold.co/600x600/000000/white?text=Gunter+Hoodie"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card" data-subcategoria="deportes">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-warning text-dark">Agotándose</span>
+                  <img src="https://placehold.co/600x600/334155/white?text=Mancuernas+Hex" alt="Set de Mancuernas Hexagonales 20lb">
+                </div>
+
+                <div class="item-info">
+                  <span class="item-price">$1,250.00</span>
+                  <h6 class="item-title text-truncate">Set de Mancuernas Hexagonales 20lb</h6>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Macroplaza
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="D-01"
+                    data-nombre="Set de Mancuernas Hexagonales 20lb"
+                    data-precio="1250"
+                    data-imagen="https://placehold.co/600x600/334155/white?text=Mancuernas+Hex"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card" data-subcategoria="hogar">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-secondary">Hogar</span>
+                  <img src="https://placehold.co/600x600/78716c/white?text=Lampara+RGB" alt="Lámpara Smart RGB">
+                </div>
+
+                <div class="item-info">
+                  <span class="item-price">$499.00</span>
+                  <h6 class="item-title text-truncate">Lámpara Smart RGB Minimalista</h6>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> La Mesa
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="H-01"
+                    data-nombre="Lámpara Smart RGB Minimalista"
+                    data-precio="499"
+                    data-imagen="https://placehold.co/600x600/78716c/white?text=Lampara+RGB"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card" data-subcategoria="electronica">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-primary">Gen 5</span>
+                  <img src="https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe" alt="SSD NVMe M.2 2TB Gen 5.0">
+                </div>
+
+                <div class="item-info">
+                  <span class="item-price">$3,950.00</span>
+                  <h6 class="item-title text-truncate">SSD NVMe M.2 2TB Gen 5.0 High Speed</h6>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> La Mesa
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-03"
+                    data-nombre="SSD NVMe M.2 2TB Gen 5.0 High Speed"
+                    data-precio="3950"
+                    data-imagen="https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card" data-subcategoria="moda">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-dark">Más Vendido</span>
+                  <img src="https://placehold.co/600x600/18181b/white?text=Tech+Cap" alt="Gorra Gunter Dad Hat Bordada">
+                </div>
+
+                <div class="item-info">
+                  <span class="item-price">$380.00</span>
+                  <h6 class="item-title text-truncate">Gorra Gunter Dad Hat Bordada</h6>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> La Mesa
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="R-03"
+                    data-nombre="Gorra Gunter Dad Hat Bordada"
+                    data-precio="380"
+                    data-imagen="https://placehold.co/600x600/18181b/white?text=Tech+Cap"
+                  >
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
 
           </div>
         </section>
+
       </main>
     </div>
   </div>
+
+  <footer class="border-top py-4 mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0 fw-bold">Gunter<span class="text-primary">.</span></p>
+      <p class="mb-0 text-muted small">Marketplace local para productos de tecnología y estilo de vida.</p>
+      <p class="mb-0 text-muted small">Tijuana, México</p>
+    </div>
+  </footer>
 
   <script src="java/Java.js"></script>
 </body>

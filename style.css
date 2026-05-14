@@ -1,14 +1,24 @@
+/* ==========================================
+   GUNTER MARKETPLACE - STYLE.CSS
+   ========================================== */
+
 /* Variables Globales */
 :root {
     --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
     --text-main: #1e293b;
     --text-muted: #64748b;
     --bg-light: #f8fafc;
-    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --border-color: #e2e8f0;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --soft-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
 /* Configuración Base */
+* {
+    box-sizing: border-box;
+}
+
 body { 
     font-family: 'Inter', sans-serif; 
     background-color: var(--bg-light);
@@ -16,9 +26,23 @@ body {
     margin: 0;
 }
 
-/* Header Estilo Apple/Airbnb con Glassmorphism */
+a {
+    transition: all 0.2s ease;
+}
+
+.bg-light-gunter {
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.08), transparent 30%),
+        #f8fafc;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
 .main-header {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
@@ -32,9 +56,20 @@ body {
     color: var(--text-main); 
     text-decoration: none;
 }
-.logo span { color: var(--primary-color); }
 
-/* Barra de búsqueda Pro */
+.logo:hover {
+    color: var(--text-main);
+    opacity: 0.85;
+}
+
+.logo span { 
+    color: var(--primary-color); 
+}
+
+/* ==========================================
+   SEARCH
+   ========================================== */
+
 .search-container {
     background: #f1f5f9;
     border-radius: 50px;
@@ -57,9 +92,17 @@ body {
     outline: none;
     width: 100%;
     margin-left: 10px;
+    color: var(--text-main);
 }
 
-/* Sidebar de Navegación y Gestión */
+.search-container input::placeholder {
+    color: #94a3b8;
+}
+
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+
 .sidebar-section-title {
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -93,7 +136,45 @@ body {
     font-size: 1.1rem; 
 }
 
-/* Cards de Producto */
+/* Para botones usados como filtros */
+button.cat-item {
+    font-family: inherit;
+}
+
+button.cat-item:focus {
+    outline: none;
+}
+
+/* ==========================================
+   HERO
+   ========================================== */
+
+.hero-banner {
+    box-shadow: var(--soft-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    top: -70px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+}
+
+.hero-banner > div {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================
+   PRODUCT CARDS
+   ========================================== */
+
 .item-card {
     background: white;
     border-radius: 16px;
@@ -110,21 +191,29 @@ body {
 
 .img-wrapper {
     position: relative;
-    padding-top: 100%; /* Ratio 1:1 */
+    padding-top: 100%;
     overflow: hidden;
     background-color: #f1f5f9;
 }
 
 .img-wrapper img {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.item-card:hover .img-wrapper img {
+    transform: scale(1.04);
 }
 
 .badge-premium {
     position: absolute;
-    top: 10px; left: 10px;
+    top: 10px; 
+    left: 10px;
     background: var(--primary-color);
     color: white;
     font-size: 0.7rem;
@@ -135,12 +224,15 @@ body {
     z-index: 10;
 }
 
-.item-info { padding: 1.25rem; }
+.item-info { 
+    padding: 1.25rem; 
+}
 
 .item-price { 
     font-size: 1.25rem; 
     font-weight: 700; 
     display: block; 
+    color: var(--text-main);
 }
 
 .item-title { 
@@ -158,7 +250,205 @@ body {
     border-radius: 10px;
     font-weight: 600;
     margin-top: 15px;
-    transition: opacity 0.2s;
+    transition: all 0.2s ease;
 }
 
-.btn-add:hover { opacity: 0.9; }
+.btn-add:hover { 
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.btn-add:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   LOGIN / REGISTRO
+   ========================================== */
+
+.login-card,
+.register-card {
+    max-width: 480px;
+    margin: auto;
+    border-radius: 24px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: var(--soft-shadow);
+}
+
+.logo-text {
+    color: var(--text-main);
+}
+
+.logo-text span {
+    color: var(--primary-color);
+}
+
+.back-link {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+}
+
+.form-label-custom {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05rem;
+    margin-bottom: 8px;
+}
+
+.custom-input {
+    border-radius: 14px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    background: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.custom-input:focus {
+    background: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-gunter-primary {
+    background: var(--text-main);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+}
+
+.btn-gunter-primary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-outline-gunter {
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    background: white;
+    transition: all 0.25s ease;
+}
+
+.btn-outline-gunter:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(37, 99, 235, 0.06);
+}
+
+/* ==========================================
+   CARRITO
+   ========================================== */
+
+#cart-items img {
+    background: #f1f5f9;
+}
+
+#cart-items .list-group-item {
+    transition: background 0.2s ease;
+}
+
+#cart-items .list-group-item:hover {
+    background: #f8fafc;
+}
+
+/* ==========================================
+   ADMIN / TABLAS
+   ========================================== */
+
+.table {
+    color: var(--text-main);
+}
+
+.table thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.card {
+    border-radius: 18px;
+}
+
+.badge {
+    font-weight: 700;
+}
+
+/* ==========================================
+   UTILIDADES
+   ========================================== */
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.rounded-4 {
+    border-radius: 1rem !important;
+}
+
+.shadow-soft {
+    box-shadow: var(--soft-shadow);
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 991px) {
+    .category-menu {
+        position: static !important;
+    }
+
+    .hero-banner {
+        padding: 2rem !important;
+    }
+
+    .hero-banner h1,
+    .hero-banner h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-header .container {
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .item-info {
+        padding: 1rem;
+    }
+
+    .hero-banner {
+        padding: 1.5rem !important;
+    }
+
+    .hero-banner h1,
+    .hero-banner h2 {
+        font-size: 1.7rem;
+    }
+
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}

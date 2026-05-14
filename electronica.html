@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Gunter | Electrónica & Hardware</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+
+<body data-categoria="Electronica">
 
   <header class="main-header">
     <div class="container d-flex justify-content-between align-items-center py-3">
@@ -19,64 +22,122 @@
       
       <div class="search-container d-none d-md-flex">
         <i class="bi bi-search text-muted"></i>
-        <input type="text" id="search-input" placeholder="Busca procesadores, GPUs, SSDs...">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Busca procesadores, GPUs, SSDs..."
+          autocomplete="off"
+        >
       </div>
 
       <div class="d-flex align-items-center gap-4">
-        <a href="carrito.html" class="text-dark text-decoration-none position-relative">
+        <a href="carrito.html" class="text-dark text-decoration-none position-relative" aria-label="Ver carrito">
           <i class="bi bi-bag fs-4"></i>
-          <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
+          <span 
+            id="cart-count" 
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
+            style="font-size: 0.6rem; display: none;"
+          >0</span>
         </a>
-        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender Hardware</button>
+
+        <a href="productos-gestion.html" class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">
+          Vender Hardware
+        </a>
       </div>
     </div>
   </header>
 
   <div class="container my-5">
     <div class="row">
-      <aside class="col-lg-3">
+
+      <aside class="col-lg-3 mb-4 mb-lg-0">
         <div class="category-menu sticky-top" style="top: 100px;">
+
           <p class="sidebar-section-title">Navegación</p>
-          <a href="index.html" class="cat-item"><i class="bi bi-arrow-left"></i> Volver al Inicio</a>
-          <a href="electronica.html" class="cat-item active"><i class="bi bi-cpu"></i> Electrónica</a>
-          <a href="moda.html" class="cat-item"><i class="bi bi-person-arms-up"></i> Moda & Style</a>
+
+          <a href="index.html" class="cat-item">
+            <i class="bi bi-arrow-left"></i> Volver al Inicio
+          </a>
+
+          <a href="electronica.html" class="cat-item active">
+            <i class="bi bi-cpu"></i> Electrónica
+          </a>
+
+          <a href="moda.html" class="cat-item">
+            <i class="bi bi-person-arms-up"></i> Moda & Style
+          </a>
+
+          <a href="deportes.html" class="cat-item">
+            <i class="bi bi-trophy"></i> Deportes
+          </a>
+
+          <a href="hogar.html" class="cat-item">
+            <i class="bi bi-house-heart"></i> Hogar
+          </a>
           
           <p class="sidebar-section-title">Componentes</p>
-          <a href="#" class="cat-item small"><i class="bi bi-gpu-card"></i> Tarjetas Gráficas</a>
-          <a href="#" class="cat-item small"><i class="bi bi-memory"></i> Almacenamiento</a>
-          <a href="#" class="cat-item small"><i class="bi bi-motherboard"></i> Tarjetas Madre</a>
+
+          <button type="button" class="cat-item small border-0 bg-transparent text-start w-100 filtro-subcategoria" data-filtro="gpu">
+            <i class="bi bi-gpu-card"></i> Tarjetas Gráficas
+          </button>
+
+          <button type="button" class="cat-item small border-0 bg-transparent text-start w-100 filtro-subcategoria" data-filtro="almacenamiento">
+            <i class="bi bi-memory"></i> Almacenamiento
+          </button>
+
+          <button type="button" class="cat-item small border-0 bg-transparent text-start w-100 filtro-subcategoria" data-filtro="motherboard">
+            <i class="bi bi-motherboard"></i> Tarjetas Madre
+          </button>
+
         </div>
       </aside>
 
       <main class="col-lg-9">
-        <section class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
-                 style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); min-height: 200px; border-left: 5px solid #2563eb;">
+
+        <section 
+          class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
+          style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); min-height: 200px; border-left: 5px solid #2563eb;"
+        >
           <div>
             <span class="badge bg-primary mb-2 fw-bold">HARDWARE CORE</span>
-            <h2 class="fw-bold display-6">Componentes de Alto Rendimiento</h2>
-            <p class="opacity-75">Potencia pura para Gaming, Trabajo y Estaciones de IA en Tijuana.</p>
+            <h1 class="fw-bold display-6">Componentes de Alto Rendimiento</h1>
+            <p class="opacity-75 mb-0">Potencia pura para Gaming, Trabajo y Estaciones de IA en Tijuana.</p>
           </div>
         </section>
 
         <section id="productos-electronica">
           <div class="d-flex justify-content-between align-items-end mb-4">
-            <h3 class="fw-bold m-0">Inventario de Electrónica</h3>
+            <div>
+              <h2 class="fw-bold m-0 h3">Inventario de Electrónica</h2>
+              <p class="text-muted small mb-0">Componentes disponibles en Gunter</p>
+            </div>
+
             <span class="text-muted small">Mostrando: Componentes Pro</span>
           </div>
 
           <div class="row g-4" id="product-grid">
             
             <div class="col-md-4 col-sm-6">
-              <div class="item-card">
+              <div class="item-card" data-subcategoria="gpu">
                 <div class="img-wrapper">
                   <span class="badge-premium bg-dark">Top Ventas</span>
-                  <img src="https://placehold.co/600x600/1e293b/white?text=RTX+5090" alt="GPU">
+                  <img src="https://placehold.co/600x600/1e293b/white?text=RTX+5090" alt="NVIDIA RTX 5090 Founders Edition">
                 </div>
+
                 <div class="item-info">
                   <span class="item-price">$32,499.00</span>
                   <h6 class="item-title text-truncate">NVIDIA RTX 5090 Founders Edition</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Zona Río</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('E-01', 'RTX 5090 Founders', 32499, 'https://placehold.co/600x600/1e293b/white?text=RTX+5090')">
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Zona Río
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-01"
+                    data-nombre="NVIDIA RTX 5090 Founders Edition"
+                    data-precio="32499"
+                    data-imagen="https://placehold.co/600x600/1e293b/white?text=RTX+5090"
+                  >
                     Añadir al carrito
                   </button>
                 </div>
@@ -84,15 +145,25 @@
             </div>
 
             <div class="col-md-4 col-sm-6">
-              <div class="item-card">
+              <div class="item-card" data-subcategoria="cpu">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/f59e0b/white?text=Intel+i9+14900K" alt="CPU">
+                  <img src="https://placehold.co/600x600/f59e0b/white?text=Intel+i9+14900K" alt="Procesador Intel Core i9-14900K">
                 </div>
+
                 <div class="item-info">
                   <span class="item-price">$11,800.00</span>
                   <h6 class="item-title text-truncate">Procesador Intel Core i9-14900K</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Otay</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('E-02', 'Intel i9-14900K', 11800, 'https://placehold.co/600x600/f59e0b/white?text=Intel+i9+14900K')">
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Otay
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-02"
+                    data-nombre="Procesador Intel Core i9-14900K"
+                    data-precio="11800"
+                    data-imagen="https://placehold.co/600x600/f59e0b/white?text=Intel+i9+14900K"
+                  >
                     Añadir al carrito
                   </button>
                 </div>
@@ -100,16 +171,26 @@
             </div>
 
             <div class="col-md-4 col-sm-6">
-              <div class="item-card">
+              <div class="item-card" data-subcategoria="almacenamiento">
                 <div class="img-wrapper">
                   <span class="badge-premium bg-primary">Gen 5</span>
-                  <img src="https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe" alt="SSD">
+                  <img src="https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe" alt="SSD NVMe M.2 2TB Gen 5.0">
                 </div>
+
                 <div class="item-info">
                   <span class="item-price">$3,950.00</span>
                   <h6 class="item-title text-truncate">SSD NVMe M.2 2TB Gen 5.0 High Speed</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> La Mesa</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('E-03', 'SSD 2TB Gen 5', 3950, 'https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe')">
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> La Mesa
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-03"
+                    data-nombre="SSD NVMe M.2 2TB Gen 5.0 High Speed"
+                    data-precio="3950"
+                    data-imagen="https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe"
+                  >
                     Añadir al carrito
                   </button>
                 </div>
@@ -117,15 +198,25 @@
             </div>
 
             <div class="col-md-4 col-sm-6">
-              <div class="item-card">
+              <div class="item-card" data-subcategoria="ram">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/6366f1/white?text=DDR5+32GB" alt="RAM">
+                  <img src="https://placehold.co/600x600/6366f1/white?text=DDR5+32GB" alt="Memoria RAM DDR5 32GB">
                 </div>
+
                 <div class="item-info">
                   <span class="item-price">$2,400.00</span>
                   <h6 class="item-title text-truncate">Memoria RAM DDR5 32GB (2x16) 6000MHz</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Playas</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('E-04', 'RAM DDR5 32GB', 2400, 'https://placehold.co/600x600/6366f1/white?text=DDR5+32GB')">
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Playas
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-04"
+                    data-nombre="Memoria RAM DDR5 32GB 6000MHz"
+                    data-precio="2400"
+                    data-imagen="https://placehold.co/600x600/6366f1/white?text=DDR5+32GB"
+                  >
                     Añadir al carrito
                   </button>
                 </div>
@@ -133,15 +224,25 @@
             </div>
 
             <div class="col-md-4 col-sm-6">
-              <div class="item-card">
+              <div class="item-card" data-subcategoria="fuente">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/000000/white?text=PSU+1000W" alt="PSU">
+                  <img src="https://placehold.co/600x600/000000/white?text=PSU+1000W" alt="Fuente 1000W 80+ Platinum Modular">
                 </div>
+
                 <div class="item-info">
                   <span class="item-price">$4,200.00</span>
                   <h6 class="item-title text-truncate">Fuente 1000W 80+ Platinum Modular</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Centro</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('E-05', 'Fuente 1000W Platinum', 4200, 'https://placehold.co/600x600/000000/white?text=PSU+1000W')">
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Centro
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-05"
+                    data-nombre="Fuente 1000W 80+ Platinum Modular"
+                    data-precio="4200"
+                    data-imagen="https://placehold.co/600x600/000000/white?text=PSU+1000W"
+                  >
                     Añadir al carrito
                   </button>
                 </div>
@@ -149,16 +250,26 @@
             </div>
 
             <div class="col-md-4 col-sm-6">
-              <div class="item-card">
+              <div class="item-card" data-subcategoria="streaming">
                 <div class="img-wrapper">
                   <span class="badge-premium bg-danger">Streamer Choice</span>
-                  <img src="https://placehold.co/600x600/0f172a/white?text=Capturadora+4K" alt="Stream">
+                  <img src="https://placehold.co/600x600/0f172a/white?text=Capturadora+4K" alt="Capturadora 4K Pro Externa USB-C">
                 </div>
+
                 <div class="item-info">
                   <span class="item-price">$5,600.00</span>
                   <h6 class="item-title text-truncate">Capturadora 4K Pro Externa USB-C</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Cacho</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('E-06', 'Capturadora 4K Pro', 5600, 'https://placehold.co/600x600/0f172a/white?text=Capturadora+4K')">
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt"></i> Cacho
+                  </p>
+
+                  <button 
+                    class="btn-add w-100"
+                    data-id="E-06"
+                    data-nombre="Capturadora 4K Pro Externa USB-C"
+                    data-precio="5600"
+                    data-imagen="https://placehold.co/600x600/0f172a/white?text=Capturadora+4K"
+                  >
                     Añadir al carrito
                   </button>
                 </div>
@@ -167,9 +278,18 @@
 
           </div>
         </section>
+
       </main>
     </div>
   </div>
+
+  <footer class="border-top py-4 mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0 fw-bold">Gunter<span class="text-primary">.</span></p>
+      <p class="mb-0 text-muted small">Marketplace local para productos de tecnología y estilo de vida.</p>
+      <p class="mb-0 text-muted small">Tijuana, México</p>
+    </div>
+  </footer>
 
   <script src="java/Java.js"></script>
 </body>

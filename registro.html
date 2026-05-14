@@ -1,43 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gunter | Registro</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body { background: #f8fafc; }
-        .register-card { max-width: 450px; margin: 60px auto; border-radius: 20px; border: none; }
-        .btn-register { background: #000000; color: white; border-radius: 50px; font-weight: bold; transition: 0.3s; }
-        .btn-register:hover { background: #2563eb; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gunter | Registro</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-<div class="container">
-    <div class="max-width-450 mx-auto mt-4">
-        <a href="index.html" class="text-decoration-none text-muted small fw-bold">
-            <i class="bi bi-arrow-left"></i> VOLVER A LA TIENDA
+<body class="bg-light-gunter" data-pagina="registro">
+
+  <main class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+
+    <div class="w-100" style="max-width: 480px;">
+
+      <div class="text-center mb-4">
+        <a href="index.html" class="back-link fw-bold text-decoration-none">
+          <i class="bi bi-arrow-left-circle-fill me-2"></i>
+          VOLVER A LA TIENDA
         </a>
-    </div>
+      </div>
 
-    <div class="card register-card shadow-lg p-4 mt-3">
+      <div class="card login-card shadow-lg border-0 rounded-4 p-4">
+
         <div class="text-center mb-4">
-            <h2 class="fw-bold">Únete a Gunter<span>.</span></h2>
-            <p class="text-muted">Crea tu cuenta para comprar en Tijuana</p>
+          <a href="index.html" class="logo text-decoration-none">
+            Gunter<span>.</span>
+          </a>
+
+          <p class="text-muted mt-2 mb-0">Crea tu cuenta para comprar en Tijuana</p>
         </div>
         
-        <form id="register-form">
-            <button type="submit" class="btn btn-register w-100 py-2 mb-3">Crear Cuenta</button>
-            
-            <div class="text-center">
-                <p class="small">¿Ya tienes cuenta? <a href="iniciologin.html" class="text-decoration-none fw-bold text-primary">Inicia sesión</a></p>
-            </div>
-        </form>
-    </div>
-</div>
+        <form id="register-form" novalidate>
 
-<script src="java/registro.js"></script>
+          <div id="register-alert" class="alert d-none rounded-3" role="alert"></div>
+
+          <div class="mb-3">
+            <label for="nombre" class="form-label-custom">NOMBRE COMPLETO</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              class="form-control custom-input" 
+              placeholder="Tu nombre completo"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label-custom">CORREO ELECTRÓNICO</label>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-control custom-input" 
+              placeholder="nombre@correo.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="telefono" class="form-label-custom">TELÉFONO</label>
+            <input 
+              type="tel" 
+              id="telefono" 
+              class="form-control custom-input" 
+              placeholder="664 000 0000"
+              autocomplete="tel"
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label-custom">CONTRASEÑA</label>
+            <div class="position-relative">
+              <input 
+                type="password" 
+                id="password" 
+                class="form-control custom-input pe-5" 
+                placeholder="Mínimo 6 caracteres"
+                autocomplete="new-password"
+                required
+              >
+
+              <button 
+                type="button" 
+                id="toggle-password" 
+                class="btn position-absolute top-50 end-0 translate-middle-y me-2 border-0 text-muted"
+                aria-label="Mostrar contraseña"
+              >
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="confirm-password" class="form-label-custom">CONFIRMAR CONTRASEÑA</label>
+            <div class="position-relative">
+              <input 
+                type="password" 
+                id="confirm-password" 
+                class="form-control custom-input pe-5" 
+                placeholder="Repite tu contraseña"
+                autocomplete="new-password"
+                required
+              >
+
+              <button 
+                type="button" 
+                id="toggle-confirm-password" 
+                class="btn position-absolute top-50 end-0 translate-middle-y me-2 border-0 text-muted"
+                aria-label="Mostrar contraseña"
+              >
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-register" class="btn btn-gunter-primary w-100 py-3 shadow-sm">
+            Crear Cuenta
+          </button>
+          
+          <div class="text-center mt-4 pt-3 border-top">
+            <p class="small text-muted mb-2">¿Ya tienes cuenta?</p>
+
+            <a href="iniciologin.html" class="btn btn-outline-gunter w-100 rounded-pill fw-bold py-2">
+              Iniciar sesión
+            </a>
+          </div>
+
+        </form>
+      </div>
+
+      <p class="text-center text-muted small mt-3 mb-0">
+        Registro temporal en frontend. Después se conectará con MariaDB.
+      </p>
+
+    </div>
+
+  </main>
+
+  <script src="java/registro.js"></script>
 </body>
 </html>

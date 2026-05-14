@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gunter | Gestión de Productos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-light" data-pagina="gestion-productos">
+
+  <header class="main-header bg-white">
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <a class="logo" href="index.html">Gunter<span>.</span></a>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" class="btn btn-outline-dark rounded-pill px-3 fw-600 d-flex align-items-center gap-2">
+          <i class="bi bi-arrow-left"></i>
+          <span class="d-none d-lg-inline">Volver al inicio</span>
+        </a>
+
+        <a href="carrito.html" class="text-dark text-decoration-none position-relative ms-2" aria-label="Ver carrito">
+          <i class="bi bi-bag fs-4"></i>
+          <span 
+            id="cart-count" 
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
+            style="font-size: 0.6rem; display: none;"
+          >0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+      <div>
+        <span class="badge bg-primary rounded-pill mb-2">Panel administrativo</span>
+        <h1 class="fw-bold h2 mb-1">Gestión de productos</h1>
+        <p class="text-muted mb-0">
+          Administra productos, stock, precios y categorías de Gunter.
+        </p>
+      </div>
+
+      <a href="index.html" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+        <i class="bi bi-shop me-2"></i>
+        Ver tienda
+      </a>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- FORMULARIO -->
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 100px;">
+          <h5 class="fw-bold mb-3">
+            <i class="bi bi-plus-circle me-2 text-primary"></i>
+            Nuevo producto
+          </h5>
+
+          <form id="form-producto">
+
+            <input type="hidden" id="producto-id">
+
+            <div class="mb-3">
+              <label for="producto-nombre" class="form-label fw-semibold">Nombre</label>
+              <input 
+                type="text" 
+                class="form-control rounded-3" 
+                id="producto-nombre" 
+                placeholder="Ej. RTX 5090 Founders Edition"
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="producto-categoria" class="form-label fw-semibold">Categoría</label>
+              <select class="form-select rounded-3" id="producto-categoria" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="Electronica">Electrónica</option>
+                <option value="Moda">Moda</option>
+                <option value="Deportes">Deportes</option>
+                <option value="Hogar">Hogar</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="col-6 mb-3">
+                <label for="producto-precio" class="form-label fw-semibold">Precio</label>
+                <input 
+                  type="number" 
+                  class="form-control rounded-3" 
+                  id="producto-precio" 
+                  min="1" 
+                  step="0.01"
+                  placeholder="0.00"
+                  required
+                >
+              </div>
+
+              <div class="col-6 mb-3">
+                <label for="producto-stock" class="form-label fw-semibold">Stock</label>
+                <input 
+                  type="number" 
+                  class="form-control rounded-3" 
+                  id="producto-stock" 
+                  min="0" 
+                  step="1"
+                  placeholder="0"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="producto-imagen" class="form-label fw-semibold">URL de imagen</label>
+              <input 
+                type="url" 
+                class="form-control rounded-3" 
+                id="producto-imagen" 
+                placeholder="https://..."
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="producto-descripcion" class="form-label fw-semibold">Descripción</label>
+              <textarea 
+                class="form-control rounded-3" 
+                id="producto-descripcion" 
+                rows="3" 
+                placeholder="Describe el producto..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">
+              <i class="bi bi-save me-2"></i>
+              Guardar producto
+            </button>
+
+            <button type="button" id="btn-cancelar-edicion" class="btn btn-outline-secondary w-100 rounded-pill py-2 fw-bold mt-2 d-none">
+              Cancelar edición
+            </button>
+
+          </form>
+
+          <p class="text-muted small mt-3 mb-0">
+            Por ahora este panel funciona en frontend. Después se conectará con MariaDB.
+          </p>
+        </div>
+      </div>
+
+      <!-- LISTA DE PRODUCTOS -->
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+
+          <div class="p-4 border-bottom bg-white">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+              <div>
+                <h5 class="fw-bold mb-1">Inventario local</h5>
+                <p class="text-muted small mb-0">Vista previa de productos registrados.</p>
+              </div>
+
+              <div class="search-container d-flex">
+                <i class="bi bi-search text-muted"></i>
+                <input 
+                  type="text" 
+                  id="buscar-producto-admin" 
+                  placeholder="Buscar producto..."
+                  autocomplete="off"
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Producto</th>
+                  <th>Categoría</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th class="text-end">Acciones</th>
+                </tr>
+              </thead>
+
+              <tbody id="tabla-productos">
+                <tr>
+                  <td colspan="5" class="text-center text-muted py-5">
+                    No hay productos registrados todavía.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="border-top py-4 mt-5 bg-white">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0 fw-bold">Gunter<span class="text-primary">.</span></p>
+      <p class="mb-0 text-muted small">Panel preparado para futura conexión con MariaDB.</p>
+      <p class="mb-0 text-muted small">Tijuana, México</p>
+    </div>
+  </footer>
+
+  <script src="java/Java.js"></script>
+
+  <script>
+    let productosAdmin = JSON.parse(localStorage.getItem("productosAdmin")) || [
+      {
+        id: "E-01",
+        nombre: "NVIDIA RTX 5090 Founders Edition",
+        categoria: "Electronica",
+        precio: 32499,
+        stock: 8,
+        imagen: "https://placehold.co/600x600/1e293b/white?text=RTX+5090",
+        descripcion: "Tarjeta gráfica de alto rendimiento para gaming extremo."
+      },
+      {
+        id: "R-01",
+        nombre: 'Hoodie Oversize "Gunter Core"',
+        categoria: "Moda",
+        precio: 850,
+        stock: 20,
+        imagen: "https://placehold.co/600x600/000000/white?text=Gunter+Hoodie",
+        descripcion: "Hoodie oversize premium con estilo techwear."
+      },
+      {
+        id: "D-01",
+        nombre: "Set de Mancuernas Hexagonales 20lb",
+        categoria: "Deportes",
+        precio: 1250,
+        stock: 12,
+        imagen: "https://placehold.co/600x600/334155/white?text=Mancuernas+Hex",
+        descripcion: "Mancuernas resistentes para entrenamiento en casa."
+      }
+    ];
+
+    const formProducto = document.getElementById("form-producto");
+    const tablaProductos = document.getElementById("tabla-productos");
+    const buscarProductoAdmin = document.getElementById("buscar-producto-admin");
+    const btnCancelarEdicion = document.getElementById("btn-cancelar-edicion");
+
+    const inputId = document.getElementById("producto-id");
+    const inputNombre = document.getElementById("producto-nombre");
+    const inputCategoria = document.getElementById("producto-categoria");
+    const inputPrecio = document.getElementById("producto-precio");
+    const inputStock = document.getElementById("producto-stock");
+    const inputImagen = document.getElementById("producto-imagen");
+    const inputDescripcion = document.getElementById("producto-descripcion");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      guardarProductosAdmin();
+      renderizarTablaProductos(productosAdmin);
+    });
+
+    formProducto.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const idEditando = inputId.value;
+
+      const producto = {
+        id: idEditando || generarIdProductoAdmin(inputCategoria.value),
+        nombre: inputNombre.value.trim(),
+        categoria: inputCategoria.value,
+        precio: Number(inputPrecio.value),
+        stock: Number(inputStock.value),
+        imagen: inputImagen.value.trim(),
+        descripcion: inputDescripcion.value.trim()
+      };
+
+      if (idEditando) {
+        productosAdmin = productosAdmin.map(item => {
+          return item.id === idEditando ? producto : item;
+        });
+      } else {
+        productosAdmin.push(producto);
+      }
+
+      guardarProductosAdmin();
+      renderizarTablaProductos(productosAdmin);
+      limpiarFormulario();
+    });
+
+    buscarProductoAdmin.addEventListener("input", () => {
+      const busqueda = buscarProductoAdmin.value.toLowerCase().trim();
+
+      const filtrados = productosAdmin.filter(producto => {
+        return (
+          producto.nombre.toLowerCase().includes(busqueda) ||
+          producto.categoria.toLowerCase().includes(busqueda) ||
+          producto.descripcion.toLowerCase().includes(busqueda)
+        );
+      });
+
+      renderizarTablaProductos(filtrados);
+    });
+
+    btnCancelarEdicion.addEventListener("click", () => {
+      limpiarFormulario();
+    });
+
+    function renderizarTablaProductos(productos) {
+      if (!productos.length) {
+        tablaProductos.innerHTML = `
+          <tr>
+            <td colspan="5" class="text-center text-muted py-5">
+              No hay productos para mostrar.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tablaProductos.innerHTML = "";
+
+      productos.forEach(producto => {
+        const fila = document.createElement("tr");
+
+        fila.innerHTML = `
+          <td>
+            <div class="d-flex align-items-center gap-3">
+              <img 
+                src="${producto.imagen}" 
+                alt="${producto.nombre}" 
+                style="width: 58px; height: 58px; object-fit: cover; border-radius: 14px;"
+              >
+
+              <div>
+                <div class="fw-bold">${producto.nombre}</div>
+                <div class="text-muted small text-truncate" style="max-width: 260px;">
+                  ${producto.descripcion}
+                </div>
+              </div>
+            </div>
+          </td>
+
+          <td>
+            <span class="badge bg-light text-dark border">
+              ${producto.categoria}
+            </span>
+          </td>
+
+          <td class="fw-semibold">
+            $${producto.precio.toLocaleString("es-MX", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            })}
+          </td>
+
+          <td>
+            <span class="badge ${producto.stock > 0 ? "bg-success" : "bg-danger"}">
+              ${producto.stock}
+            </span>
+          </td>
+
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-primary rounded-pill me-1" onclick="editarProductoAdmin('${producto.id}')">
+              <i class="bi bi-pencil"></i>
+            </button>
+
+            <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="eliminarProductoAdmin('${producto.id}')">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        `;
+
+        tablaProductos.appendChild(fila);
+      });
+    }
+
+    function editarProductoAdmin(id) {
+      const producto = productosAdmin.find(item => item.id === id);
+
+      if (!producto) return;
+
+      inputId.value = producto.id;
+      inputNombre.value = producto.nombre;
+      inputCategoria.value = producto.categoria;
+      inputPrecio.value = producto.precio;
+      inputStock.value = producto.stock;
+      inputImagen.value = producto.imagen;
+      inputDescripcion.value = producto.descripcion;
+
+      btnCancelarEdicion.classList.remove("d-none");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function eliminarProductoAdmin(id) {
+      const confirmar = confirm("¿Seguro que quieres eliminar este producto?");
+
+      if (!confirmar) return;
+
+      productosAdmin = productosAdmin.filter(item => item.id !== id);
+
+      guardarProductosAdmin();
+      renderizarTablaProductos(productosAdmin);
+    }
+
+    function limpiarFormulario() {
+      formProducto.reset();
+      inputId.value = "";
+      btnCancelarEdicion.classList.add("d-none");
+    }
+
+    function guardarProductosAdmin() {
+      localStorage.setItem("productosAdmin", JSON.stringify(productosAdmin));
+    }
+
+    function generarIdProductoAdmin(categoria) {
+      const prefijos = {
+        Electronica: "E",
+        Moda: "R",
+        Deportes: "D",
+        Hogar: "H"
+      };
+
+      const prefijo = prefijos[categoria] || "P";
+      return `${prefijo}-${Date.now()}`;
+    }
+  </script>
+
+</body>
+</html>
