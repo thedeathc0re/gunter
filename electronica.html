@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gunter | Deportes & Fitness</title>
+  <title>Gunter | Electrónica & Hardware</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
@@ -19,7 +19,7 @@
       
       <div class="search-container d-none d-md-flex">
         <i class="bi bi-search text-muted"></i>
-        <input type="text" id="search-input" placeholder="Busca equipo, pesas, balones...">
+        <input type="text" id="search-input" placeholder="Busca procesadores, GPUs, SSDs...">
       </div>
 
       <div class="d-flex align-items-center gap-4">
@@ -27,7 +27,7 @@
           <i class="bi bi-bag fs-4"></i>
           <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem; display: none;">0</span>
         </a>
-        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender Equipo</button>
+        <button class="btn btn-primary d-none d-sm-inline-block rounded-pill px-4 fw-bold">Vender Hardware</button>
       </div>
     </div>
   </header>
@@ -38,31 +38,30 @@
         <div class="category-menu sticky-top" style="top: 100px;">
           <p class="sidebar-section-title">Navegación</p>
           <a href="index.html" class="cat-item"><i class="bi bi-arrow-left"></i> Volver al Inicio</a>
-          <a href="deportes.html" class="cat-item active"><i class="bi bi-trophy"></i> Deportes</a>
-          <a href="electronica.html" class="cat-item"><i class="bi bi-cpu"></i> Electrónica</a>
+          <a href="electronica.html" class="cat-item active"><i class="bi bi-cpu"></i> Electrónica</a>
           <a href="moda.html" class="cat-item"><i class="bi bi-person-arms-up"></i> Moda & Style</a>
           
-          <p class="sidebar-section-title">Disciplinas</p>
-          <a href="#" class="cat-item small"><i class="bi bi- person-walking"></i> Fitness / Gym</a>
-          <a href="#" class="cat-item small"><i class="bi bi-dribbble"></i> Basketball</a>
-          <a href="#" class="cat-item small"><i class="bi bi-fuell-pump"></i> Suplementos</a>
+          <p class="sidebar-section-title">Componentes</p>
+          <a href="#" class="cat-item small"><i class="bi bi-gpu-card"></i> Tarjetas Gráficas</a>
+          <a href="#" class="cat-item small"><i class="bi bi-memory"></i> Almacenamiento</a>
+          <a href="#" class="cat-item small"><i class="bi bi-motherboard"></i> Tarjetas Madre</a>
         </div>
       </aside>
 
       <main class="col-lg-9">
         <section class="hero-banner mb-5 rounded-4 p-5 text-white d-flex align-items-center" 
-                 style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); min-height: 200px; border-left: 5px solid #22c55e;">
+                 style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); min-height: 200px; border-left: 5px solid #2563eb;">
           <div>
-            <span class="badge bg-white text-success mb-2 fw-bold">EQUIPO PROFESIONAL</span>
-            <h2 class="fw-bold display-6">Supera tus Límites</h2>
-            <p class="opacity-75">Todo para tu entrenamiento diario, desde Home Gym hasta equipo de alto rendimiento.</p>
+            <span class="badge bg-primary mb-2 fw-bold">HARDWARE CORE</span>
+            <h2 class="fw-bold display-6">Componentes de Alto Rendimiento</h2>
+            <p class="opacity-75">Potencia pura para Gaming, Trabajo y Estaciones de IA en Tijuana.</p>
           </div>
         </section>
 
-        <section id="productos-deportes">
+        <section id="productos-electronica">
           <div class="d-flex justify-content-between align-items-end mb-4">
-            <h3 class="fw-bold m-0">Catálogo de Deportes</h3>
-            <span class="text-muted small">Equípate hoy mismo</span>
+            <h3 class="fw-bold m-0">Inventario de Electrónica</h3>
+            <span class="text-muted small">Mostrando: Componentes Pro</span>
           </div>
 
           <div class="row g-4" id="product-grid">
@@ -70,64 +69,14 @@
             <div class="col-md-4 col-sm-6">
               <div class="item-card">
                 <div class="img-wrapper">
-                  <span class="badge-premium bg-warning text-dark">Agotándose</span>
-                  <img src="https://placehold.co/600x600/334155/white?text=Mancuernas+Hex" alt="Pesas">
+                  <span class="badge-premium bg-dark">Top Ventas</span>
+                  <img src="https://placehold.co/600x600/1e293b/white?text=RTX+5090" alt="GPU">
                 </div>
                 <div class="item-info">
-                  <span class="item-price">$1,250.00</span>
-                  <h6 class="item-title text-truncate">Set de Mancuernas Hexagonales 20lb</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Macroplaza</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('D-01', 'Mancuernas 20lb', 1250, 'https://placehold.co/600x600/334155/white?text=Mancuernas+Hex')">
-                    Añadir al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card">
-                <div class="img-wrapper">
-                  <span class="badge-premium bg-success">Top Calidad</span>
-                  <img src="https://placehold.co/600x600/000000/white?text=Whey+Protein" alt="Proteina">
-                </div>
-                <div class="item-info">
-                  <span class="item-price">$1,450.00</span>
-                  <h6 class="item-title text-truncate">Whey Protein Isolate 5lbs - Vainilla</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Cacho</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('D-02', 'Whey Protein 5lb', 1450, 'https://placehold.co/600x600/000000/white?text=Whey+Protein')">
-                    Añadir al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card">
-                <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/ea580c/white?text=Wilson+Evolution" alt="Balon">
-                </div>
-                <div class="item-info">
-                  <span class="item-price">$1,100.00</span>
-                  <h6 class="item-title text-truncate">Balón Basketball Wilson Evolution</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> El Florido</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('D-03', 'Wilson Evolution', 1100, 'https://placehold.co/600x600/ea580c/white?text=Wilson+Evolution')">
-                    Añadir al carrito
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-              <div class="item-card">
-                <div class="img-wrapper">
-                  <span class="badge-premium bg-dark">Best Seller</span>
-                  <img src="https://placehold.co/600x600/1e293b/white?text=Garmin+Fenix" alt="Garmin">
-                </div>
-                <div class="item-info">
-                  <span class="item-price">$9,800.00</span>
-                  <h6 class="item-title text-truncate">Garmin Fenix 7 Solar Edition</h6>
+                  <span class="item-price">$32,499.00</span>
+                  <h6 class="item-title text-truncate">NVIDIA RTX 5090 Founders Edition</h6>
                   <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Zona Río</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('D-04', 'Garmin Fenix 7', 9800, 'https://placehold.co/600x600/1e293b/white?text=Garmin+Fenix')">
+                  <button class="btn-add w-100" onclick="agregarCarrito('E-01', 'RTX 5090 Founders', 32499, 'https://placehold.co/600x600/1e293b/white?text=RTX+5090')">
                     Añadir al carrito
                   </button>
                 </div>
@@ -137,13 +86,13 @@
             <div class="col-md-4 col-sm-6">
               <div class="item-card">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/a855f7/white?text=Yoga+Mat" alt="Yoga">
+                  <img src="https://placehold.co/600x600/f59e0b/white?text=Intel+i9+14900K" alt="CPU">
                 </div>
                 <div class="item-info">
-                  <span class="item-price">$450.00</span>
-                  <h6 class="item-title text-truncate">Tapete de Yoga Antiderrapante 6mm</h6>
-                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Playas</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('D-05', 'Yoga Mat 6mm', 450, 'https://placehold.co/600x600/a855f7/white?text=Yoga+Mat')">
+                  <span class="item-price">$11,800.00</span>
+                  <h6 class="item-title text-truncate">Procesador Intel Core i9-14900K</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Otay</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('E-02', 'Intel i9-14900K', 11800, 'https://placehold.co/600x600/f59e0b/white?text=Intel+i9+14900K')">
                     Añadir al carrito
                   </button>
                 </div>
@@ -153,13 +102,63 @@
             <div class="col-md-4 col-sm-6">
               <div class="item-card">
                 <div class="img-wrapper">
-                  <img src="https://placehold.co/600x600/000000/white?text=Gym+Bag" alt="Maleta">
+                  <span class="badge-premium bg-primary">Gen 5</span>
+                  <img src="https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe" alt="SSD">
                 </div>
                 <div class="item-info">
-                  <span class="item-price">$650.00</span>
-                  <h6 class="item-title text-truncate">Maleta Deportiva Impermeable</h6>
+                  <span class="item-price">$3,950.00</span>
+                  <h6 class="item-title text-truncate">SSD NVMe M.2 2TB Gen 5.0 High Speed</h6>
                   <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> La Mesa</p>
-                  <button class="btn-add w-100" onclick="agregarCarrito('D-06', 'Maleta Gym', 650, 'https://placehold.co/600x600/000000/white?text=Gym+Bag')">
+                  <button class="btn-add w-100" onclick="agregarCarrito('E-03', 'SSD 2TB Gen 5', 3950, 'https://placehold.co/600x600/dc2626/white?text=SSD+2TB+NVMe')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/6366f1/white?text=DDR5+32GB" alt="RAM">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$2,400.00</span>
+                  <h6 class="item-title text-truncate">Memoria RAM DDR5 32GB (2x16) 6000MHz</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Playas</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('E-04', 'RAM DDR5 32GB', 2400, 'https://placehold.co/600x600/6366f1/white?text=DDR5+32GB')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <img src="https://placehold.co/600x600/000000/white?text=PSU+1000W" alt="PSU">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$4,200.00</span>
+                  <h6 class="item-title text-truncate">Fuente 1000W 80+ Platinum Modular</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Centro</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('E-05', 'Fuente 1000W Platinum', 4200, 'https://placehold.co/600x600/000000/white?text=PSU+1000W')">
+                    Añadir al carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+              <div class="item-card">
+                <div class="img-wrapper">
+                  <span class="badge-premium bg-danger">Streamer Choice</span>
+                  <img src="https://placehold.co/600x600/0f172a/white?text=Capturadora+4K" alt="Stream">
+                </div>
+                <div class="item-info">
+                  <span class="item-price">$5,600.00</span>
+                  <h6 class="item-title text-truncate">Capturadora 4K Pro Externa USB-C</h6>
+                  <p class="text-muted small mb-2"><i class="bi bi-geo-alt"></i> Cacho</p>
+                  <button class="btn-add w-100" onclick="agregarCarrito('E-06', 'Capturadora 4K Pro', 5600, 'https://placehold.co/600x600/0f172a/white?text=Capturadora+4K')">
                     Añadir al carrito
                   </button>
                 </div>
